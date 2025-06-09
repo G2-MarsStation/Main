@@ -7,6 +7,8 @@ TagManager:
   - Ground
   - Grabbable
   - Grababble
+  - Produto
+  - Dirt
   layers:
   - Default
   - TransparentFX
