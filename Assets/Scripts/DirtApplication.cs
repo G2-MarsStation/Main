@@ -14,7 +14,7 @@ public class DirtApplication : MonoBehaviour
         if (other.CompareTag("Dirt"))
         {
             nearSoil = true;
-            targetSoil = GetComponent<GameObject>();
+            targetSoil = other.gameObject;
         };
     }
 
@@ -23,7 +23,8 @@ public class DirtApplication : MonoBehaviour
         if (other.CompareTag("Dirt"))
         {
             nearSoil = false;
-            targetSoil = GetComponent<GameObject>();
+            targetSoil = other.gameObject;
+            currentTime = 0f;
         }
     }
 
@@ -37,16 +38,28 @@ public class DirtApplication : MonoBehaviour
             if (currentTime >= finalTimer)
             {
                 ApplyProduct();
+                currentTime = 0f;
             }
         }   
     }
 
     void ApplyProduct()
     {
-        Debug.Log("Produto aplicado");
+        if (targetSoil.TryGetComponent(out SoilState soilState))
+        {
 
-        targetSoil.GetComponent<Renderer>().material.color = Color.green;
+            // Se a terra ainda nao foi tratada...
+            if (!soilState.treatedSoil)
+            {
+                soilState.CheckSoilTreated();
+                Debug.Log("Produto aplicado");
+            }
+            else
+            {
+                Debug.Log("Terra já tratada");
+            }
+        }
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }
