@@ -30,6 +30,9 @@ public class DirtApplication : MonoBehaviour
 
     void Update()
     {
+        // Faz voltar se não estiver nessa fase
+        if (SoilManager.instance.currentPhase != SoilPhase.ApplyProduct) return;
+
         if (nearSoil && Input.GetKey(applyKey))
         {
             Debug.Log("Aplicando o produto");

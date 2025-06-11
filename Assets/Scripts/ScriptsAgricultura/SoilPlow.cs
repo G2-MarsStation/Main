@@ -29,6 +29,9 @@ public class SoilPlow : MonoBehaviour
 
     private void Update()
     {
+        // Faz voltar se não estiver nessa fase
+        if (SoilManager.instance.currentPhase != SoilPhase.Plow) return;
+
         if(nearSoil && Input.GetKey(plowKey))
         {
             Debug.Log("Arando a terra");
