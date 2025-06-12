@@ -19,7 +19,7 @@ public class AreaDetector : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         //Verifica se o objeto que entrou na área possui a tag indicada
-        if (other.CompareTag("Grabbable"))
+        if (other.CompareTag("Grabbable") || other.CompareTag("Potato"))
         {
             GrabbableObject grabbable = other.GetComponent<GrabbableObject>();
 
@@ -34,7 +34,7 @@ public class AreaDetector : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         //Verifica se o objeto que saiu aa área possui a tag indicada
-        if (other.CompareTag("Grabbable"))
+        if (other.CompareTag("Grabbable") || other.CompareTag("Potato"))
         {
             GrabbableObject grabbable = other.GetComponent<GrabbableObject>();
 
