@@ -1885,11 +1885,11 @@ MonoBehaviour:
   plantedSoil: 0
   plantedObject: {fileID: 1366628959}
   plantPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 456642383}
+  - {fileID: 1155881639}
+  - {fileID: 1690390197}
+  - {fileID: 1931996478}
+  - {fileID: 713990261}
 --- !u!4 &414500549 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1455378770531923368, guid: e8e820a7c17739c48b824e84c3e95997, type: 3}
@@ -2712,8 +2712,13 @@ MonoBehaviour:
   treatedSoil: 0
   plowedSoil: 0
   plantedSoil: 0
-  plantedObject: {fileID: 0}
-  plantPoints: []
+  plantedObject: {fileID: 1366628959}
+  plantPoints:
+  - {fileID: 162489879}
+  - {fileID: 1918464603}
+  - {fileID: 1462864462}
+  - {fileID: 972015549}
+  - {fileID: 1471518481}
 --- !u!4 &613458350 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4395525209739050047, guid: e8e820a7c17739c48b824e84c3e95997, type: 3}
