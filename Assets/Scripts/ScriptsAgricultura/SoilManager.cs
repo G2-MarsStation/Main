@@ -41,4 +41,13 @@ public class SoilManager : MonoBehaviour
         } return true;
     }
 
+    public bool AllSoilsPlanted()
+    {
+        foreach (var soil in allSoils)
+        {
+            if (!soil.plantedSoil) return false;
+        }
+        return true;
+    }
+
 }
