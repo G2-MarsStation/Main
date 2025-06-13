@@ -56,13 +56,42 @@ public class GrabSystem : MonoBehaviour
             }
         }
 
+        //if (Input.GetKeyDown(KeyCode.G) && holdObject != null && holdObject.CompareTag("Potato"))
+        //{
+        //    Ray ray2 = new Ray(cameraTransform.position, cameraTransform.forward);
+        //    if (Physics.Raycast(ray, out RaycastHit hit, 2f))
+        //    {
+        //        SoilState soil = hit.collider.GetComponent<SoilState>();
+        //        if (soil != null && soil.plowedSoil)
+        //        {
+        //            bool planted = soil.PlantBatata();
+        //            if (planted)
+        //            {
+        //                Destroy(holdObject);
+        //                holdObject = null;
+        //                holdScript = null;
+        //                Debug.Log("Batata plantada com sucesso!");
+        //            }
+        //            else
+        //            {
+        //                Debug.Log("Este solo já está com todas as batatas plantadas.");
+        //            }
+        //        }
+        //    }
+        //}
+
         if (Input.GetKeyDown(KeyCode.G) && holdObject != null && holdObject.CompareTag("Potato"))
         {
             Ray ray2 = new Ray(cameraTransform.position, cameraTransform.forward);
-            if (Physics.Raycast(ray, out RaycastHit hit, 2f))
+            if (Physics.Raycast(ray2, out RaycastHit hit, 2f))
             {
                 SoilState soil = hit.collider.GetComponent<SoilState>();
-                if (soil != null && soil.plowedSoil)
+
+                // Verifica se o solo é válido, está arado e se a fase atual é PLANT
+                if (soil != null
+                    && soil.plowedSoil
+                    && SoilManager.instance != null
+                    && SoilManager.instance.currentPhase == SoilPhase.Plant)
                 {
                     bool planted = soil.PlantBatata();
                     if (planted)
@@ -76,6 +105,10 @@ public class GrabSystem : MonoBehaviour
                     {
                         Debug.Log("Este solo já está com todas as batatas plantadas.");
                     }
+                }
+                else
+                {
+                    Debug.Log("Você ainda não pode plantar! Certifique-se de que todos os solos foram arados.");
                 }
             }
         }
