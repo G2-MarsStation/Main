@@ -72,10 +72,14 @@ public class GrabSystem : MonoBehaviour
                     bool planted = soil.PlantBatata();
                     if (planted)
                     {
-                        Destroy(holdObject);
-                        holdObject = null;
-                        holdScript = null;
-                        Debug.Log("Batata plantada com sucesso!");
+                        if (holdObject != null)
+                        {
+                            Destroy(holdObject);
+                            holdObject = null;
+                            holdScript = null;
+                            Debug.Log("Batata plantada com sucesso!");
+                            return;
+                        }   
                     }
                     else
                     {

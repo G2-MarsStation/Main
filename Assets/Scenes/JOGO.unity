@@ -3313,9 +3313,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63c60bb6ae497742a5e4858d97bd25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treatedSoil: 1
-  plowedSoil: 1
-  plantedSoil: 1
+  treatedSoil: 0
+  plowedSoil: 0
+  plantedSoil: 0
   isWatered: 0
   plantedObject: {fileID: 1366628959}
   plantPoints:
@@ -13340,9 +13340,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63c60bb6ae497742a5e4858d97bd25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treatedSoil: 1
-  plowedSoil: 1
-  plantedSoil: 1
+  treatedSoil: 0
+  plowedSoil: 0
+  plantedSoil: 0
   isWatered: 0
   plantedObject: {fileID: 1366628959}
   plantPoints:
@@ -15116,9 +15116,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63c60bb6ae497742a5e4858d97bd25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treatedSoil: 1
-  plowedSoil: 1
-  plantedSoil: 1
+  treatedSoil: 0
+  plowedSoil: 0
+  plantedSoil: 0
   isWatered: 0
   plantedObject: {fileID: 1366628959}
   plantPoints:
