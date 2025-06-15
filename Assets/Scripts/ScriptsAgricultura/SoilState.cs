@@ -5,10 +5,12 @@ public class SoilState : MonoBehaviour
     public bool treatedSoil = false;
     public bool plowedSoil = false;
     public bool plantedSoil = false;
+    public bool isWatered = false;
 
     public GameObject plantedObject;
     public Transform[] plantPoints;
     private bool[] pointsUsed;
+    public bool[] potatoWatered;
 
     public int maxPlants => plantPoints.Length;
 
@@ -17,6 +19,7 @@ public class SoilState : MonoBehaviour
         if (plantPoints != null && plantPoints.Length > 0)
         {
             pointsUsed = new bool[plantPoints.Length];
+            potatoWatered = new bool[plantPoints.Length];
         }
     }
     public void CheckSoilTreated()
@@ -47,13 +50,20 @@ public class SoilState : MonoBehaviour
 
     public bool PlantBatata()
     {
-        if (!plowedSoil || pointsUsed == null) return false;
+        if (!plowedSoil || plantPoints == null) return false;
 
         for (int i = 0; i < plantPoints.Length; i++)
         {
             if (!pointsUsed[i])
             {
-                Instantiate(plantedObject, plantPoints[i].position, Quaternion.identity);
+                GameObject planted = Instantiate(plantedObject, plantPoints[i].position, Quaternion.identity, plantPoints[i]);
+
+                // Garante que a batata tem PlantGrow
+                if (planted.GetComponent<PlantGrow>() == null)
+                {
+                    planted.AddComponent<PlantGrow>();
+                }
+
                 pointsUsed[i] = true;
 
                 CheckPlantedSoil();
@@ -61,6 +71,12 @@ public class SoilState : MonoBehaviour
             }
         }
 
-        return false; // Todos os pontos já foram usados
+        return false;
+    }
+
+    public void CheckWateredSoil()
+    {
+        isWatered = true;
+        Debug.Log("Solo totalmente regado!");
     }
 }

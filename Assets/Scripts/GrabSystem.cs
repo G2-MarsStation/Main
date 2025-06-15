@@ -33,7 +33,7 @@ public class GrabSystem : MonoBehaviour
             {
                 if (Physics.Raycast(ray, out raycastHit, grabDistance))
                 {
-                    if (raycastHit.collider.CompareTag("Grababble") || raycastHit.collider.CompareTag("Potato"))
+                    if (raycastHit.collider.CompareTag("Grababble") || raycastHit.collider.CompareTag("Potato") || raycastHit.collider.CompareTag("Regador"))
                     {
                         holdObject = raycastHit.collider.gameObject;
 
@@ -55,30 +55,6 @@ public class GrabSystem : MonoBehaviour
 
             }
         }
-
-        //if (Input.GetKeyDown(KeyCode.G) && holdObject != null && holdObject.CompareTag("Potato"))
-        //{
-        //    Ray ray2 = new Ray(cameraTransform.position, cameraTransform.forward);
-        //    if (Physics.Raycast(ray, out RaycastHit hit, 2f))
-        //    {
-        //        SoilState soil = hit.collider.GetComponent<SoilState>();
-        //        if (soil != null && soil.plowedSoil)
-        //        {
-        //            bool planted = soil.PlantBatata();
-        //            if (planted)
-        //            {
-        //                Destroy(holdObject);
-        //                holdObject = null;
-        //                holdScript = null;
-        //                Debug.Log("Batata plantada com sucesso!");
-        //            }
-        //            else
-        //            {
-        //                Debug.Log("Este solo já está com todas as batatas plantadas.");
-        //            }
-        //        }
-        //    }
-        //}
 
         if (Input.GetKeyDown(KeyCode.G) && holdObject != null && holdObject.CompareTag("Potato"))
         {
@@ -135,5 +111,10 @@ public class GrabSystem : MonoBehaviour
 
 
         }
+    }
+
+    public bool IsHolding(GameObject obj)
+    {
+        return holdObject == obj;
     }
 }

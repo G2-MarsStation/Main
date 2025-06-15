@@ -12,6 +12,7 @@ TagManager:
   - TrackingObject
   - Actors
   - Potato
+  - Regador
   layers:
   - Default
   - TransparentFX

@@ -4,6 +4,7 @@
     {
         ApplyProduct,
         Plow,
-        Plant
+        Plant,
+        Water
     }
 

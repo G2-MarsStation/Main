@@ -23,6 +23,15 @@ public class SoilManager : MonoBehaviour
         {
             currentPhase = SoilPhase.Plant;
         }
+        if (currentPhase == SoilPhase.Plant && AllSoilsPlanted())
+        {
+            currentPhase = SoilPhase.Water;
+            Debug.Log("Fase avançada para: Regar");
+        }
+        if (currentPhase == SoilPhase.Water && AllSoilsWatered())
+        {
+            Debug.Log("Concluido");
+        }
     }
 
     public bool AllSoilsTreated()
@@ -46,6 +55,15 @@ public class SoilManager : MonoBehaviour
         foreach (var soil in allSoils)
         {
             if (!soil.plantedSoil) return false;
+        }
+        return true;
+    }
+
+    public bool AllSoilsWatered()
+    {
+        foreach (var soil in allSoils)
+        {
+            if (!soil.isWatered) return false;
         }
         return true;
     }
