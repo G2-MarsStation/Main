@@ -1,21 +1,19 @@
 using System.Collections;
-using UnityEditor.UIElements;
 using UnityEngine;
 
-public class DayAndNightSystem : MonoBehaviour
+public class SistemaDiaNoite : MonoBehaviour
 {
-
     public enum CicloTempo { Dia, Noite }
     public CicloTempo cicloAtual = CicloTempo.Dia;
 
     public int diaAtual = 1;
 
     [Header("Tarefas")]
-    public bool tarefa1Concluida = false;
-    public bool tarefa2Concluida = false;
+    public bool tarefa01Concluida = false;
+    public bool tarefa02Concluida = false;
 
-    [Header("Referências Visuais")] //nao sei pra que serve
-    public Light direcionalLuz; // sol ou lua, tanto faz.
+    [Header("Referências Visuais")]
+    public Light direcionalLuz;
     public GameObject sol;
     public GameObject lua;
     public GameObject ceuEstrelado;
@@ -26,65 +24,99 @@ public class DayAndNightSystem : MonoBehaviour
     public float intensidadeDia = 1.0f;
     public float intensidadeNoite = 1.2f;
 
+    [Header("Skyboxes")]
+    public Material skyboxDia;
+    public Material skyboxNoite;
+
+    [Header("Personagem")]
     public GameObject personagem;
 
+    private PlayerController playerController;
+    private Animator personagemAnimator;
 
-
+    private bool estaDormindo = false;
 
     void Start()
     {
+        // Pega componentes essenciais no Start
+        if (personagem != null)
+        {
+            playerController = personagem.GetComponent<PlayerController>();
+            personagemAnimator = personagem.GetComponent<Animator>();
+        }
+        else
+        {
+            Debug.LogWarning("Personagem não está atribuído no SistemaDiaNoite.");
+        }
+
+        cicloAtual = CicloTempo.Dia;
         AtualizarCenario();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
+    // Removi o Update vazio
 
+    public void ConcluirTarefa1()
+    {
+        tarefa01Concluida = true;
+        VerificarTarefas();
     }
 
-    public void VerificarTarefas()
+    public void ConcluirTarefa2()
     {
-        if (tarefa1Concluida && tarefa2Concluida)
+        tarefa02Concluida = true;
+        VerificarTarefas();
+    }
+
+    private void VerificarTarefas()
+    {
+        if (tarefa01Concluida && tarefa02Concluida && cicloAtual == CicloTempo.Dia && !estaDormindo)
         {
             MudarParaNoite();
         }
     }
 
-    void MudarParaNoite()
+    private void MudarParaNoite()
     {
         cicloAtual = CicloTempo.Noite;
         AtualizarCenario();
-        ForcarPersonagemADormir();
+        StartCoroutine(ForcarPersonagemADormir());
     }
 
-    void ForcarPersonagemADormir()
+    private IEnumerator ForcarPersonagemADormir()
     {
-        personagem.GetComponent<PlayerController>().enabled = false;
-        personagem.GetComponent<Animator>().SetTrigger("Dormir");
+        estaDormindo = true;
 
-        StartCoroutine(EsperarEDespertar());
+        if (playerController != null)
+            playerController.enabled = false;
 
-    }
+        if (personagemAnimator != null)
+            personagemAnimator.SetTrigger("Dormir");
 
-    IEnumerator EsperarEDespertar()
-    {
+        // Tempo para animação ou efeito de dormir
         yield return new WaitForSeconds(5f);
+
         diaAtual++;
         cicloAtual = CicloTempo.Dia;
 
-
-        //Resetar tarefas
-        tarefa1Concluida = false;
-        tarefa2Concluida = false;
+        tarefa01Concluida = false;
+        tarefa02Concluida = false;
 
         AtualizarCenario();
 
-        personagem.GetComponent<PlayerController>().enabled = true;
+        if (playerController != null)
+            playerController.enabled = true;
 
+        estaDormindo = false;
     }
 
-    void AtualizarCenario()
+    private void AtualizarCenario()
     {
+        if (direcionalLuz == null || sol == null || lua == null || ceuEstrelado == null)
+        {
+            Debug.LogWarning("Algumas referências visuais não foram atribuídas no SistemaDiaNoite.");
+            return;
+        }
+
         if (cicloAtual == CicloTempo.Dia)
         {
             direcionalLuz.color = corLuzDia;
@@ -93,6 +125,9 @@ public class DayAndNightSystem : MonoBehaviour
             sol.SetActive(true);
             lua.SetActive(false);
             ceuEstrelado.SetActive(false);
+
+            if (skyboxDia != null)
+                RenderSettings.skybox = skyboxDia;
         }
         else
         {
@@ -102,18 +137,12 @@ public class DayAndNightSystem : MonoBehaviour
             sol.SetActive(false);
             lua.SetActive(true);
             ceuEstrelado.SetActive(true);
-        }
-    }
-    //chamar essas funçoes quando cada tarefa for concluida
-    public void ConcluirTarefa1()
-    {
-        tarefa1Concluida = true;
-        VerificarTarefas();
-    }
 
-    public void ConcluirTarefa2()
-    {
-        tarefa2Concluida = true;
-        VerificarTarefas();
+            if (skyboxNoite != null)
+                RenderSettings.skybox = skyboxNoite;
+        }
+
+        DynamicGI.UpdateEnvironment();
     }
 }
+

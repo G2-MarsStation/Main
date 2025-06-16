@@ -14,45 +14,39 @@ public class ChecklistUIManager : MonoBehaviour
     public GameObject Tarefas01;
     public GameObject Tarefas02;
     private CanvasGroup tarefa01Group;
-    private bool tarefasCompletas = false;
+    public bool tarefasCompletas = false;
 
     void Start()
     {
         tarefa01Group = Tarefas01.GetComponent<CanvasGroup>();
-        Tarefas02.SetActive(false); //desativa as tarefas2
+        tarefa01Group.alpha = 1f; // garante que esteja visível no início
+        Tarefas02.SetActive(false); // desativa tarefas 2 no começo
 
-        treatCheck.enabled = false;
-        plowCheck.enabled = false;
-        plantCheck.enabled = false;
-        waterCheck.enabled = false;
+        // Deixa as imagens de check invisíveis no começo
+        treatCheck.gameObject.SetActive(false);
+        plowCheck.gameObject.SetActive(false);
+        plantCheck.gameObject.SetActive(false);
+        waterCheck.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (soilState.treatedSoil)
-            treatCheck.enabled = true;
+        // Atualiza os checks na UI conforme o estado do solo
+        treatCheck.gameObject.SetActive(soilState.treatedSoil);
+        plowCheck.gameObject.SetActive(soilState.plowedSoil);
+        plantCheck.gameObject.SetActive(soilState.plantedSoil);
+        waterCheck.gameObject.SetActive(soilState.isWatered);
 
-        if (soilState.plowedSoil)
-            plowCheck.enabled = true;
-
-        if (soilState.plantedSoil)
-            plantCheck.enabled = true;
-
-        if (soilState.isWatered)
-            waterCheck.enabled = true;
-
-        //verifica tarefas
-        if(!tarefasCompletas &&
+        // Verifica se todas as tarefas foram completadas
+        if (!tarefasCompletas &&
             soilState.treatedSoil &&
             soilState.plowedSoil &&
             soilState.plantedSoil &&
             soilState.isWatered)
         {
+            tarefa01Concluida = true;
             tarefasCompletas = true;
             StartCoroutine(FadeOutTarefa01());
-
-           
         }
     }
 
@@ -64,8 +58,7 @@ public class ChecklistUIManager : MonoBehaviour
 
         while (elapsed < duration)
         {
-            float alpha = Mathf.Lerp(1f, 0f, elapsed / duration);
-            tarefa01Group.alpha = alpha;
+            tarefa01Group.alpha = Mathf.Lerp(1f, 0f, elapsed / duration);
             elapsed += Time.deltaTime;
             yield return null;
         }
@@ -74,7 +67,9 @@ public class ChecklistUIManager : MonoBehaviour
         Tarefas01.SetActive(false);
         yield return new WaitForSeconds(1.5f);
         Tarefas02.SetActive(true);
-        
-    Debug.Log("Fade concluído.");
+        Debug.Log("Fade concluído.");
     }
+
+    [HideInInspector] public bool tarefa01Concluida = false;
 }
+

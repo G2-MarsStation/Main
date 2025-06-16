@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.2753649, g: 0.3789906, b: 0.6415094, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 8872e0148b6c5f84fb07616d75034118, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 3b16cb1dff852cb4d92490671281ead7, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4147517}
   - component: {fileID: 4147516}
+  - component: {fileID: 4147518}
   m_Layer: 0
   m_Name: GerenciadorSistemaDiaNoite
   m_TagString: Untagged
@@ -143,23 +144,25 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4147515}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1be3c6ada3c05be468d6a4d62b4f2c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cicloAtual: 0
   diaAtual: 1
-  tarefa1Concluida: 0
-  tarefa2Concluida: 0
+  tarefa01Concluida: 0
+  tarefa02Concluida: 0
   direcionalLuz: {fileID: 1414364544}
-  sol: {fileID: 1414364543}
+  sol: {fileID: 0}
   lua: {fileID: 0}
   ceuEstrelado: {fileID: 0}
   corLuzDia: {r: 1, g: 1, b: 1, a: 1}
   corLuzNoite: {r: 0.1, g: 0.1, b: 0.3, a: 1}
   intensidadeDia: 1
-  intensidadeNoite: 0.5
+  intensidadeNoite: 1.2
+  skyboxDia: {fileID: 2100000, guid: 3b16cb1dff852cb4d92490671281ead7, type: 2}
+  skyboxNoite: {fileID: 2100000, guid: 8872e0148b6c5f84fb07616d75034118, type: 2}
   personagem: {fileID: 1243197289}
 --- !u!4 &4147517
 Transform:
@@ -176,6 +179,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4147518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4147515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f95efc4402511043b781beb4df931e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skyboxDia: {fileID: 2100000, guid: 2bcff30c4259eae49b3746423adc293d, type: 2}
+  skyboxNoite: {fileID: 2100000, guid: dcdf8b1b80f40784a9636a2d1c711e35, type: 2}
+  directionalLight: {fileID: 1414364544}
+  sunRotationDia: {x: 50, y: 0, z: 0}
+  sunRotationNoite: {x: -30, y: 0, z: 0}
+  intensidadeDia: 1
+  intensidadeNoite: 0.2
+  checklist: {fileID: 131056905}
 --- !u!1 &23075819
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,6 +714,8 @@ MonoBehaviour:
   waterCheck: {fileID: 1245354174}
   Tarefas01: {fileID: 2040504541}
   Tarefas02: {fileID: 1812743091}
+  tarefasCompletas: 0
+  tarefa01Concluida: 0
 --- !u!1 &132653706 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 9033256930027538170, guid: e8e820a7c17739c48b824e84c3e95997, type: 3}
@@ -3462,8 +3487,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63c60bb6ae497742a5e4858d97bd25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treatedSoil: 1
-  plowedSoil: 1
+  treatedSoil: 0
+  plowedSoil: 0
   plantedSoil: 0
   isWatered: 0
   plantedObject: {fileID: 919132149155446097, guid: b5d4e5c0a8cd2e846932d3031bac660e, type: 3}
@@ -3842,7 +3867,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1578861444657520611, guid: e060b243e88bb8341b406dc165c8292d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2835687344233610977, guid: e060b243e88bb8341b406dc165c8292d, type: 3}
       propertyPath: m_IsActive
@@ -3916,6 +3941,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -245
       objectReference: {fileID: 0}
+    - target: {fileID: 3618221343047402836, guid: e060b243e88bb8341b406dc165c8292d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3726853085133314599, guid: e060b243e88bb8341b406dc165c8292d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -122.2
@@ -3928,6 +3957,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4362045105149532099, guid: e060b243e88bb8341b406dc165c8292d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5271780614362335321, guid: e060b243e88bb8341b406dc165c8292d, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.99998
@@ -3939,6 +3972,10 @@ PrefabInstance:
     - target: {fileID: 5271780614362335321, guid: e060b243e88bb8341b406dc165c8292d, type: 3}
       propertyPath: m_LocalScale.z
       value: 0.99998
+      objectReference: {fileID: 0}
+    - target: {fileID: 5890964059808019442, guid: e060b243e88bb8341b406dc165c8292d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6722284977425458659, guid: e060b243e88bb8341b406dc165c8292d, type: 3}
       propertyPath: m_Pivot.x
@@ -14260,8 +14297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63c60bb6ae497742a5e4858d97bd25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treatedSoil: 1
-  plowedSoil: 1
+  treatedSoil: 0
+  plowedSoil: 0
   plantedSoil: 0
   isWatered: 0
   plantedObject: {fileID: 919132149155446097, guid: b5d4e5c0a8cd2e846932d3031bac660e, type: 3}
