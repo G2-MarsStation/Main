@@ -19,7 +19,7 @@ public class CicloDiaNoite : MonoBehaviour
     [Header("Referência do Checklist (Manager)")]
     public ChecklistUIManager checklist;
 
-    private bool jaMudouParaNoite = false;
+    public bool jaMudouParaNoite = false;
     private bool trocandoSkybox = false;
 
     void Start()
@@ -107,4 +107,12 @@ public class CicloDiaNoite : MonoBehaviour
 
         trocandoSkybox = false;
     }
+
+    public void VoltarParaDia()
+    {
+        StartCoroutine(TrocarSkyboxComFade(skyboxDia));
+        AjustarLuz(sunRotationDia, intensidadeDia);
+        jaMudouParaNoite = false; // Reseta para permitir o ciclo no próximo dia
+    }
+
 }
