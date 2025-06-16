@@ -157,8 +157,16 @@ MonoBehaviour:
   sol: {fileID: 0}
   lua: {fileID: 0}
   ceuEstrelado: {fileID: 0}
-  corLuzDia: {r: 1, g: 1, b: 1, a: 1}
-  corLuzNoite: {r: 0.1, g: 0.1, b: 0.3, a: 1}
+  corLuzDia:
+    r: 1
+    g: 1
+    b: 1
+    a: 1
+  corLuzNoite:
+    r: 0.1
+    g: 0.1
+    b: 0.3
+    a: 1
   intensidadeDia: 1
   intensidadeNoite: 1.2
   skyboxDia: {fileID: 2100000, guid: 3b16cb1dff852cb4d92490671281ead7, type: 2}
@@ -199,6 +207,7 @@ MonoBehaviour:
   intensidadeDia: 1
   intensidadeNoite: 0.2
   checklist: {fileID: 131056905}
+  jaMudouParaNoite: 0
 --- !u!1 &23075819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1442,8 +1451,54 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 48f1fc9504d027a4ab0e8e69900a4ebf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 204409059}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 48f1fc9504d027a4ab0e8e69900a4ebf, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 204409063}
   m_SourcePrefab: {fileID: 100100000, guid: 48f1fc9504d027a4ab0e8e69900a4ebf, type: 3}
+--- !u!1 &204409058 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 48f1fc9504d027a4ab0e8e69900a4ebf, type: 3}
+  m_PrefabInstance: {fileID: 204409057}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &204409059
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204409058}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.038347106, y: 0.08816198, z: 0.08442241}
+  m_Center: {x: -0.009612593, y: -0.0130627, z: 0.039076548}
+--- !u!114 &204409063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204409058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83fc936f0fd49fb458b39a6203aab11b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cicloDiaNoite: {fileID: 0}
+  dormirKey: 102
 --- !u!1 &220890007
 GameObject:
   m_ObjectHideFlags: 0
