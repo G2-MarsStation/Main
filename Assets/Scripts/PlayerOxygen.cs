@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEditor.Audio;
 
 public class PlayerOxygen : MonoBehaviour
 {
@@ -7,6 +9,12 @@ public class PlayerOxygen : MonoBehaviour
     public float currentOxygen = 0f;
     public float oxygenTimer = 0f;
     public float oxygenInterval = 5f;
+
+    public Image oxygenBar; //barra implementada
+
+    public AudioSource oxygenAlertAudio; //audio de alerta de oxigenio
+    public float alertThreshold = 0.2f; // 20% de oxigenio
+    public bool hasPlayedAlert = false;
     void Start()
     {
         playerController = GetComponent<PlayerController>();
@@ -32,6 +40,25 @@ public class PlayerOxygen : MonoBehaviour
         else
         {
             playerController.currentHealth -= 1 * Time.deltaTime;
+        }
+
+        if(currentOxygen / maxOxygen <= alertThreshold)
+        {
+            if(!oxygenAlertAudio.isPlaying && !hasPlayedAlert)
+            {
+                oxygenAlertAudio.Play();
+                hasPlayedAlert = true;
+            }
+            else
+            {
+                hasPlayedAlert = false;
+            }
+        }
+
+
+        if(oxygenBar != null)
+        {
+            oxygenBar.fillAmount = currentOxygen / maxOxygen;
         }
     }
 }
