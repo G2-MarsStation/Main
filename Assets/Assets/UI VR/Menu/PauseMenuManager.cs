@@ -10,6 +10,10 @@ public class PauseMenuManager : MonoBehaviour
 
     [SerializeField] private MonoBehaviour scriptMoviment;
 
+    [SerializeField] private GameObject canvasTarefas;
+
+
+
 
     private bool jogoPausado = false;
 
@@ -30,6 +34,9 @@ public class PauseMenuManager : MonoBehaviour
 
     public void Pausar()
     {
+        canvasTarefas.SetActive(false);
+
+
         painelPause.SetActive(true);
         painelMenuInicial.SetActive(true);   // Garante que o menu principal aparece
         painelOpcoes.SetActive(false);       // Garante que o painel de opções começa fechado
@@ -43,6 +50,8 @@ public class PauseMenuManager : MonoBehaviour
 
     public void Continuar()
     {
+        canvasTarefas.SetActive(true);
+
         painelPause.SetActive(false);
         Time.timeScale = 1f;
         jogoPausado = false;

@@ -112,7 +112,7 @@ public class PlayerController : MonoBehaviour
 
         if (isDead)
         {
-            SceneManager.LoadScene("DeathScene");
+            SceneManager.LoadScene(3);
 
             Debug.Log("MORREU");
         }
