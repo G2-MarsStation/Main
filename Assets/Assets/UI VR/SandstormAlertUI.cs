@@ -15,7 +15,7 @@ public class SandstormAlertUI : MonoBehaviour
 
     private bool alertActive = false;
     public GameObject ALERTA;
-    public CameraShake cameraShake; // arraste a câmera com o script CameraShake
+    //public CameraShake cameraShake; // arraste a câmera com o script CameraShake
 
     void Update()
     {
@@ -34,8 +34,8 @@ public class SandstormAlertUI : MonoBehaviour
             alertActive = true;
             alertAudio.Play();
             StartCoroutine(PulseAlert());
-            if (cameraShake != null)
-                cameraShake.StartShake(999f); // duração longa, para durar enquanto o alerta estiver ativo
+            //if (cameraShake != null)
+                //cameraShake.StartShake(999f); // duração longa, para durar enquanto o alerta estiver ativo
         }
     }
 
@@ -45,8 +45,8 @@ public class SandstormAlertUI : MonoBehaviour
         alertAudio.Stop();
         alertBarGroup.alpha = 0f;
 
-        if (cameraShake != null)
-            cameraShake.StopShake();
+        //if (cameraShake != null)
+           // cameraShake.StopShake();
 
     }
 

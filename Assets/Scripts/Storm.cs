@@ -4,7 +4,7 @@ using UnityEngine;
 public class Storm : MonoBehaviour
 {
     public ParticleSystem sandstormParticles;
-    //public AudioSource sandstormSound;
+    public AudioSource stormSound;
     public float duration = 20f;
     public float delayBetweenStorms = 10f;
 
@@ -30,6 +30,7 @@ public class Storm : MonoBehaviour
     void StartStorm()
     {
         stormActive = true;
+        stormSound.Play();
         if(sandstormParticles != null)
         {
             sandstormParticles.Play();
@@ -56,6 +57,7 @@ public class Storm : MonoBehaviour
         {
             sandstormParticles.Stop();
         }
+        stormSound.Stop();
 
         if (alertUI != null)
         {

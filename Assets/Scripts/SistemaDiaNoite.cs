@@ -1,4 +1,3 @@
-
 using System.Collections;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -25,14 +24,7 @@ public class DayAndNightSystem : MonoBehaviour
     public Color corLuzDia = Color.white;
     public Color corLuzNoite = new Color(0.1f, 0.1f, 0.3f);
     public float intensidadeDia = 1.0f;
-    public float intensidadeNoite = 0.5f;
-
-
-    [Header("Skybox")]
-    public Material skyboxDia;
-    public Material skyboxNoite;
-
-    public float duracaoTransicao;
+    public float intensidadeNoite = 1.2f;
 
     public GameObject personagem;
 
@@ -41,7 +33,7 @@ public class DayAndNightSystem : MonoBehaviour
 
     void Start()
     {
-        AtualizarCenarioInstantaneo();
+        AtualizarCenario();
     }
 
     // Update is called once per frame
@@ -61,7 +53,7 @@ public class DayAndNightSystem : MonoBehaviour
     void MudarParaNoite()
     {
         cicloAtual = CicloTempo.Noite;
-        AtualizarCenarioInstantaneo();
+        AtualizarCenario();
         ForcarPersonagemADormir();
     }
 
@@ -85,64 +77,31 @@ public class DayAndNightSystem : MonoBehaviour
         tarefa1Concluida = false;
         tarefa2Concluida = false;
 
-        StartCoroutine(TransicaoGradual());
+        AtualizarCenario();
 
         personagem.GetComponent<PlayerController>().enabled = true;
 
     }
 
-    IEnumerator TransicaoGradual()
-    {
-        //define o alvo da transição
-        Color corInicial = direcionalLuz.color;
-        Color corFinal = (cicloAtual == CicloTempo.Dia) ? corLuzDia : corLuzNoite;
-
-        float intensidadeInicial = direcionalLuz.intensity;
-        float intensidadeFinal = (cicloAtual == CicloTempo.Dia) ? intensidadeDia : intensidadeNoite;
-
-        Material skyboxFinal = (cicloAtual == CicloTempo.Dia) ? skyboxDia : skyboxNoite;
-
-        float tempo = 0f;
-
-        while (tempo < duracaoTransicao)
-        {
-            float t = tempo / duracaoTransicao;
-
-            direcionalLuz.color = Color.Lerp(corInicial, corFinal, t);
-            direcionalLuz.intensity = Mathf.Lerp(intensidadeInicial, intensidadeFinal, t);
-
-            tempo += Time.deltaTime;
-            yield return null;
-        }
-
-        //garante que termina exatamente com o valor final
-        direcionalLuz.color = corFinal;
-        direcionalLuz.intensity = intensidadeFinal;
-        RenderSettings.skybox = skyboxFinal;
-
-        AtualizarCenarioInstantaneo();
-
-    }
-
-    void AtualizarCenarioInstantaneo()
+    void AtualizarCenario()
     {
         if (cicloAtual == CicloTempo.Dia)
         {
-            
+            direcionalLuz.color = corLuzDia;
+            direcionalLuz.intensity = intensidadeDia;
 
             sol.SetActive(true);
             lua.SetActive(false);
             ceuEstrelado.SetActive(false);
-            RenderSettings.skybox = skyboxDia;
         }
         else
         {
-          
+            direcionalLuz.color = corLuzNoite;
+            direcionalLuz.intensity = intensidadeNoite;
 
             sol.SetActive(false);
             lua.SetActive(true);
             ceuEstrelado.SetActive(true);
-            RenderSettings.skybox = skyboxNoite;
         }
     }
     //chamar essas funçoes quando cada tarefa for concluida
