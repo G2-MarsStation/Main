@@ -2107,7 +2107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 919132149155446097, guid: b5d4e5c0a8cd2e846932d3031bac660e, type: 3}
   stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 0}
+  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
 --- !u!1 &248266095
 GameObject:
   m_ObjectHideFlags: 0
@@ -2209,7 +2209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 919132149155446097, guid: b5d4e5c0a8cd2e846932d3031bac660e, type: 3}
   stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 0}
+  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
 --- !u!1 &274465216
 GameObject:
   m_ObjectHideFlags: 0
@@ -2595,7 +2595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 919132149155446097, guid: b5d4e5c0a8cd2e846932d3031bac660e, type: 3}
   stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 0}
+  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
 --- !u!1001 &330530274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2981,7 +2981,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 919132149155446097, guid: b5d4e5c0a8cd2e846932d3031bac660e, type: 3}
   stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 0}
+  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
 --- !u!1001 &335592352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3697,7 +3697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 919132149155446097, guid: b5d4e5c0a8cd2e846932d3031bac660e, type: 3}
   stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 0}
+  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
 --- !u!1 &388098451
 GameObject:
   m_ObjectHideFlags: 0
@@ -3749,11 +3749,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63c60bb6ae497742a5e4858d97bd25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treatedSoil: 0
-  plowedSoil: 0
+  treatedSoil: 1
+  plowedSoil: 1
   plantedSoil: 0
   isWatered: 0
-  plantedObject: {fileID: 1366628959}
+  plantedObject: {fileID: 919132149155446097, guid: b5d4e5c0a8cd2e846932d3031bac660e, type: 3}
   plantPoints:
   - {fileID: 966277049}
   - {fileID: 249691289}
@@ -5645,7 +5645,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 919132149155446097, guid: b5d4e5c0a8cd2e846932d3031bac660e, type: 3}
   stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 0}
+  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
 --- !u!1001 &645989570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5761,7 +5761,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 919132149155446097, guid: b5d4e5c0a8cd2e846932d3031bac660e, type: 3}
   stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 0}
+  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
 --- !u!1 &680969626
 GameObject:
   m_ObjectHideFlags: 0
@@ -11655,7 +11655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 919132149155446097, guid: b5d4e5c0a8cd2e846932d3031bac660e, type: 3}
   stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 0}
+  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
 --- !u!1001 &890286300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13013,7 +13013,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 919132149155446097, guid: b5d4e5c0a8cd2e846932d3031bac660e, type: 3}
   stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 0}
+  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
 --- !u!1 &972015548
 GameObject:
   m_ObjectHideFlags: 0
@@ -13558,7 +13558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 919132149155446097, guid: b5d4e5c0a8cd2e846932d3031bac660e, type: 3}
   stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 0}
+  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
 --- !u!1 &1078201986
 GameObject:
   m_ObjectHideFlags: 0
@@ -14501,11 +14501,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63c60bb6ae497742a5e4858d97bd25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treatedSoil: 0
-  plowedSoil: 0
+  treatedSoil: 1
+  plowedSoil: 1
   plantedSoil: 0
   isWatered: 0
-  plantedObject: {fileID: 1366628959}
+  plantedObject: {fileID: 919132149155446097, guid: b5d4e5c0a8cd2e846932d3031bac660e, type: 3}
   plantPoints:
   - {fileID: 1054178725}
   - {fileID: 2047775807}
@@ -16687,11 +16687,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63c60bb6ae497742a5e4858d97bd25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treatedSoil: 0
-  plowedSoil: 0
+  treatedSoil: 1
+  plowedSoil: 1
   plantedSoil: 0
   isWatered: 0
-  plantedObject: {fileID: 1366628959}
+  plantedObject: {fileID: 919132149155446097, guid: b5d4e5c0a8cd2e846932d3031bac660e, type: 3}
   plantPoints:
   - {fileID: 334985399}
   - {fileID: 1779841534}
@@ -18016,7 +18016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 919132149155446097, guid: b5d4e5c0a8cd2e846932d3031bac660e, type: 3}
   stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 0}
+  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
 --- !u!1 &1792600641
 GameObject:
   m_ObjectHideFlags: 0
@@ -19249,7 +19249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 919132149155446097, guid: b5d4e5c0a8cd2e846932d3031bac660e, type: 3}
   stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 0}
+  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
 --- !u!1 &2010544434
 GameObject:
   m_ObjectHideFlags: 0
@@ -19296,7 +19296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 919132149155446097, guid: b5d4e5c0a8cd2e846932d3031bac660e, type: 3}
   stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 0}
+  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
 --- !u!1 &2040504541 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3618221343047402836, guid: e060b243e88bb8341b406dc165c8292d, type: 3}
@@ -19365,7 +19365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 919132149155446097, guid: b5d4e5c0a8cd2e846932d3031bac660e, type: 3}
   stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 0}
+  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
 --- !u!1 &2049188622
 GameObject:
   m_ObjectHideFlags: 0
@@ -19626,7 +19626,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 919132149155446097, guid: b5d4e5c0a8cd2e846932d3031bac660e, type: 3}
   stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 0}
+  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
 --- !u!1 &2116161808
 GameObject:
   m_ObjectHideFlags: 0
