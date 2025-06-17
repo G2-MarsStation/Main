@@ -1476,6 +1476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cicloDiaNoite: {fileID: 4147518}
   dormirKey: 102
+  sleepFade: {fileID: 2024883517}
 --- !u!1 &220890007
 GameObject:
   m_ObjectHideFlags: 0
@@ -17520,7 +17521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.007843138}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -19965,6 +19966,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f363b80b0f12efa45913c876f65f7d1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeImage: {fileID: 1522065818}
+  fadeDuration: 2
+  sleepDuration: 2
 --- !u!1 &2040504541 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3618221343047402836, guid: e060b243e88bb8341b406dc165c8292d, type: 3}

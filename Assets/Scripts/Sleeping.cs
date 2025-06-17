@@ -4,6 +4,7 @@ public class Sleeping : MonoBehaviour
 {
     public CicloDiaNoite cicloDiaNoite;
     public KeyCode dormirKey = KeyCode.E;
+    [SerializeField] SleepFadeUI sleepFade;
 
     private bool jogadorPerto = false;
 
@@ -11,7 +12,7 @@ public class Sleeping : MonoBehaviour
     {
         if (cicloDiaNoite == null)
         {
-            cicloDiaNoite = FindObjectOfType<CicloDiaNoite>();
+            cicloDiaNoite = FindFirstObjectByType<CicloDiaNoite>();
         }
     }
 
@@ -22,7 +23,9 @@ public class Sleeping : MonoBehaviour
             if (cicloDiaNoite != null && cicloDiaNoite.jaMudouParaNoite)
             {
                 cicloDiaNoite.VoltarParaDia();
+
                 Debug.Log("Você dormiu. Um novo dia começou!");
+                sleepFade.TriggerSleepUI();
             }
             else
             {
