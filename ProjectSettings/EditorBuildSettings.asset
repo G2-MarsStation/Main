@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Death.unity
     guid: 4668482957285694d9931cba7328557a
+  - enabled: 1
+    path: Assets/Scenes/Death VR.unity
+    guid: 7c66309e265591b4892d4bc1eb80f1ec
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: d99cb04bb50b3ac488de0c53eddea930, type: 2}

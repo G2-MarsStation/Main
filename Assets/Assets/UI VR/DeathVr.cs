@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DeathUI : MonoBehaviour
+public class DeathVR : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -14,7 +14,7 @@ public class DeathUI : MonoBehaviour
 
     public void Voltar()
     {
-        SceneManager.LoadScene(0); // volta para a cena do game
+        SceneManager.LoadScene(1); // volta para a cena do game
         Debug.Log("volta ao inicio");
     }
     public void Menu()
@@ -26,6 +26,7 @@ public class DeathUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
+
