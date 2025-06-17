@@ -32,7 +32,10 @@ public class SoilManager : MonoBehaviour
         {
             Debug.Log("Concluido");
         }
-     
+        if (currentPhase == SoilPhase.Water2 && AllSoilsWatered())
+        {
+            Debug.Log("SEGUNDA REGA COMPLETA! Fase finalizada.");
+        }
     }
 
     public bool AllSoilsTreated()
@@ -68,5 +71,20 @@ public class SoilManager : MonoBehaviour
         }
         return true;
     }
+    public void AvancarParaSegundaRega()
+    {
+        currentPhase = SoilPhase.Water2;
+        ResetWaterState();
+        Debug.Log("Novo dia! Avançou para fase de REGAR 2.");
+    }
+
+    private void ResetWaterState()
+    {
+        foreach (var soil in allSoils)
+        {
+            soil.isWatered = false;
+        }
+    }
+
 
 }

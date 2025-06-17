@@ -698,13 +698,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efcc2f2f4365836458cba0cf20dab867, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soilState: {fileID: 1519416638}
+  soilState: {fileID: 0}
   soilManager: {fileID: 688984113}
   treatCheck: {fileID: 637493726}
   plowCheck: {fileID: 2131620551}
   plantCheck: {fileID: 1853781482}
   waterCheck: {fileID: 1245354174}
   sleepCheck: {fileID: 1287261809}
+  water2Check: {fileID: 582746116}
   Tarefas01: {fileID: 2040504541}
   Tarefas02: {fileID: 1812743091}
   tarefasCompletas: 0
@@ -1830,8 +1831,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 253571144468383892, guid: dd7aea126442f474b84dd9e1665893bd, type: 3}
-  stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
+  stage2Prefab: {fileID: 8906747070917393036, guid: b13852cf5eb16d049b26c0097cb98d01, type: 3}
+  stage3Prefab: {fileID: 270343908292331778, guid: 848e71be4b25b3542a1008e2eb10d01d, type: 3}
 --- !u!1 &274465216
 GameObject:
   m_ObjectHideFlags: 0
@@ -2390,8 +2391,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 253571144468383892, guid: dd7aea126442f474b84dd9e1665893bd, type: 3}
-  stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
+  stage2Prefab: {fileID: 8906747070917393036, guid: b13852cf5eb16d049b26c0097cb98d01, type: 3}
+  stage3Prefab: {fileID: 270343908292331778, guid: 848e71be4b25b3542a1008e2eb10d01d, type: 3}
 --- !u!1001 &330530274
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2776,8 +2777,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 253571144468383892, guid: dd7aea126442f474b84dd9e1665893bd, type: 3}
-  stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
+  stage2Prefab: {fileID: 8906747070917393036, guid: b13852cf5eb16d049b26c0097cb98d01, type: 3}
+  stage3Prefab: {fileID: 270343908292331778, guid: 848e71be4b25b3542a1008e2eb10d01d, type: 3}
 --- !u!1001 &335592352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3505,8 +3506,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 253571144468383892, guid: dd7aea126442f474b84dd9e1665893bd, type: 3}
-  stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
+  stage2Prefab: {fileID: 8906747070917393036, guid: b13852cf5eb16d049b26c0097cb98d01, type: 3}
+  stage3Prefab: {fileID: 270343908292331778, guid: 848e71be4b25b3542a1008e2eb10d01d, type: 3}
 --- !u!1 &388098451
 GameObject:
   m_ObjectHideFlags: 0
@@ -3558,9 +3559,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63c60bb6ae497742a5e4858d97bd25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treatedSoil: 0
-  plowedSoil: 0
-  plantedSoil: 0
+  treatedSoil: 1
+  plowedSoil: 1
+  plantedSoil: 1
   isWatered: 0
   plantedObject: {fileID: 253571144468383892, guid: dd7aea126442f474b84dd9e1665893bd, type: 3}
   plantPoints:
@@ -5200,6 +5201,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 566737571}
+  - component: {fileID: 566737572}
   m_Layer: 0
   m_Name: Sandstorm
   m_TagString: Untagged
@@ -5217,7 +5219,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 549.77985, y: -1.8418909, z: 434.5298}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1.2658614}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 869838365}
@@ -5227,6 +5229,23 @@ Transform:
   - {fileID: 685219906}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &566737572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 566737570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9985e1d7e71f054c98855a839ac0338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sandstormParticles: {fileID: 1005427662}
+  stormSound: {fileID: 321380180}
+  duration: 20
+  delayBetweenStorms: 10
+  alertUI: {fileID: 321380179}
 --- !u!1 &571335887
 GameObject:
   m_ObjectHideFlags: 0
@@ -6122,8 +6141,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 253571144468383892, guid: dd7aea126442f474b84dd9e1665893bd, type: 3}
-  stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
+  stage2Prefab: {fileID: 8906747070917393036, guid: b13852cf5eb16d049b26c0097cb98d01, type: 3}
+  stage3Prefab: {fileID: 270343908292331778, guid: 848e71be4b25b3542a1008e2eb10d01d, type: 3}
 --- !u!1001 &645989570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6238,8 +6257,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 253571144468383892, guid: dd7aea126442f474b84dd9e1665893bd, type: 3}
-  stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
+  stage2Prefab: {fileID: 8906747070917393036, guid: b13852cf5eb16d049b26c0097cb98d01, type: 3}
+  stage3Prefab: {fileID: 270343908292331778, guid: 848e71be4b25b3542a1008e2eb10d01d, type: 3}
 --- !u!1 &680969626
 GameObject:
   m_ObjectHideFlags: 0
@@ -6462,12 +6481,24 @@ PrefabInstance:
       value: Dust (3)
       objectReference: {fileID: 0}
     - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.8391237
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10.318047
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 9.29444
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.679871
+      value: -36
       objectReference: {fileID: 0}
     - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.230382
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6523,11 +6554,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: InitialModule.startSize.minScalar
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.0019579967
+      objectReference: {fileID: 0}
+    - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.20676951
+      objectReference: {fileID: 0}
+    - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.41509432
+      objectReference: {fileID: 0}
+    - target: {fileID: 199916866885247778, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 199916866885247778, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: m_Materials.Array.size
@@ -6553,21 +6608,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 685219902}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9985e1d7e71f054c98855a839ac0338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sandstormParticles: {fileID: 685219905}
-  stormSound: {fileID: 0}
+  sandstormParticles: {fileID: 869838364}
+  stormSound: {fileID: 321380180}
   duration: 20
-  delayBetweenStorms: 60
+  delayBetweenStorms: 10
   alertUI: {fileID: 321380179}
---- !u!198 &685219905 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
-  m_PrefabInstance: {fileID: 685219901}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &685219906 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
@@ -12222,7 +12272,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 869838362}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9985e1d7e71f054c98855a839ac0338, type: 3}
   m_Name: 
@@ -12374,8 +12424,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 253571144468383892, guid: dd7aea126442f474b84dd9e1665893bd, type: 3}
-  stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
+  stage2Prefab: {fileID: 8906747070917393036, guid: b13852cf5eb16d049b26c0097cb98d01, type: 3}
+  stage3Prefab: {fileID: 270343908292331778, guid: 848e71be4b25b3542a1008e2eb10d01d, type: 3}
 --- !u!1 &888700362 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8336417564021540615, guid: e66d899c4289c62429d2dcc84944ef93, type: 3}
@@ -13757,8 +13807,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 253571144468383892, guid: dd7aea126442f474b84dd9e1665893bd, type: 3}
-  stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
+  stage2Prefab: {fileID: 8906747070917393036, guid: b13852cf5eb16d049b26c0097cb98d01, type: 3}
+  stage3Prefab: {fileID: 270343908292331778, guid: 848e71be4b25b3542a1008e2eb10d01d, type: 3}
 --- !u!1 &972015548
 GameObject:
   m_ObjectHideFlags: 0
@@ -13997,12 +14047,24 @@ PrefabInstance:
       value: Dust (1)
       objectReference: {fileID: 0}
     - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.8391237
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10.318047
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 9.29444
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.679871
+      value: -36
       objectReference: {fileID: 0}
     - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.230382
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14050,7 +14112,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 10000
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: InitialModule.startSize.scalar
@@ -14058,11 +14120,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: InitialModule.startSize.minScalar
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.0019579967
+      objectReference: {fileID: 0}
+    - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.20676951
+      objectReference: {fileID: 0}
+    - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.41509432
+      objectReference: {fileID: 0}
+    - target: {fileID: 199916866885247778, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 199916866885247778, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: m_Materials.Array.size
@@ -14088,16 +14174,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1005427659}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9985e1d7e71f054c98855a839ac0338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sandstormParticles: {fileID: 1005427662}
-  stormSound: {fileID: 0}
+  sandstormParticles: {fileID: 869838364}
+  stormSound: {fileID: 321380180}
   duration: 20
-  delayBetweenStorms: 60
-  alertUI: {fileID: 0}
+  delayBetweenStorms: 10
+  alertUI: {fileID: 321380179}
 --- !u!198 &1005427662 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
@@ -14245,12 +14331,24 @@ PrefabInstance:
       value: Dust (2)
       objectReference: {fileID: 0}
     - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.8391237
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10.318047
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 9.29444
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.679871
+      value: -36
       objectReference: {fileID: 0}
     - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.230382
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -14306,11 +14404,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: InitialModule.startSize.minScalar
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.0019579967
+      objectReference: {fileID: 0}
+    - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.20676951
+      objectReference: {fileID: 0}
+    - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.41509432
+      objectReference: {fileID: 0}
+    - target: {fileID: 199916866885247778, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 199916866885247778, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: m_Materials.Array.size
@@ -14336,21 +14458,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079658391}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9985e1d7e71f054c98855a839ac0338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sandstormParticles: {fileID: 1079658394}
-  stormSound: {fileID: 0}
+  sandstormParticles: {fileID: 869838364}
+  stormSound: {fileID: 321380180}
   duration: 20
-  delayBetweenStorms: 60
+  delayBetweenStorms: 10
   alertUI: {fileID: 321380179}
---- !u!198 &1079658394 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
-  m_PrefabInstance: {fileID: 1079658390}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1079658395 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
@@ -16432,12 +16549,24 @@ PrefabInstance:
       value: Dust
       objectReference: {fileID: 0}
     - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4.8391237
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 10.318047
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 9.29444
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.679871
+      value: -36
       objectReference: {fileID: 0}
     - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 11.230382
+      value: 33
       objectReference: {fileID: 0}
     - target: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16497,15 +16626,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: InitialModule.startSize.minScalar
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: InitialModule.startColor.maxColor.a
-      value: 0.02745098
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.0019579967
+      objectReference: {fileID: 0}
+    - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.20676951
+      objectReference: {fileID: 0}
+    - target: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.41509432
+      objectReference: {fileID: 0}
+    - target: {fileID: 199916866885247778, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
+      propertyPath: m_MaxParticleSize
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 199916866885247778, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
       propertyPath: m_Materials.Array.size
@@ -16531,15 +16680,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1405660207}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b9985e1d7e71f054c98855a839ac0338, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sandstormParticles: {fileID: 0}
-  stormSound: {fileID: 0}
+  sandstormParticles: {fileID: 869838364}
+  stormSound: {fileID: 321380180}
   duration: 20
-  delayBetweenStorms: 2
+  delayBetweenStorms: 10
   alertUI: {fileID: 321380179}
 --- !u!4 &1405660211 stripped
 Transform:
@@ -17733,9 +17882,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63c60bb6ae497742a5e4858d97bd25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treatedSoil: 0
-  plowedSoil: 0
-  plantedSoil: 0
+  treatedSoil: 1
+  plowedSoil: 1
+  plantedSoil: 1
   isWatered: 0
   plantedObject: {fileID: 253571144468383892, guid: dd7aea126442f474b84dd9e1665893bd, type: 3}
   plantPoints:
@@ -19012,8 +19161,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 253571144468383892, guid: dd7aea126442f474b84dd9e1665893bd, type: 3}
-  stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
+  stage2Prefab: {fileID: 8906747070917393036, guid: b13852cf5eb16d049b26c0097cb98d01, type: 3}
+  stage3Prefab: {fileID: 270343908292331778, guid: 848e71be4b25b3542a1008e2eb10d01d, type: 3}
 --- !u!1 &1788119836
 GameObject:
   m_ObjectHideFlags: 0
@@ -20623,8 +20772,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stage1Prefab: {fileID: 253571144468383892, guid: dd7aea126442f474b84dd9e1665893bd, type: 3}
-  stage2Prefab: {fileID: 919132149155446097, guid: bd2a215b1597e9049a564d6dbeec3e14, type: 3}
-  stage3Prefab: {fileID: 919132149155446097, guid: 713ffdd9bf09a604da93c1fb07aee90f, type: 3}
+  stage2Prefab: {fileID: 8906747070917393036, guid: b13852cf5eb16d049b26c0097cb98d01, type: 3}
+  stage3Prefab: {fileID: 270343908292331778, guid: 848e71be4b25b3542a1008e2eb10d01d, type: 3}
 --- !u!1 &2116161808
 GameObject:
   m_ObjectHideFlags: 0

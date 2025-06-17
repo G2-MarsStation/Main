@@ -28,11 +28,10 @@ public class Sleeping : MonoBehaviour
             if (cicloDiaNoite != null && cicloDiaNoite.jaMudouParaNoite)
             {
                 cicloDiaNoite.VoltarParaDia();
+                SoilManager.instance.AvancarParaSegundaRega();
 
-
-                Debug.Log("Você dormiu. Um novo dia começou!");
+                Debug.Log("Você dormiu. Novo dia começou! Segunda rega ativa.");
                 sleepFade.TriggerSleepUI();
-
                 checklist?.MarcarTarefaDormir();
             }
             else

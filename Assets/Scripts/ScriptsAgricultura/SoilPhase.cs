@@ -5,6 +5,7 @@
         ApplyProduct,
         Plow,
         Plant,
-        Water
+        Water,
+        Water2
     }
 
