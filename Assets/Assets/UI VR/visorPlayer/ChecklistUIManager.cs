@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class ChecklistUIManager : MonoBehaviour
 {
     public SoilState soilState;
+    public SoilManager soilManager;
 
     public Image treatCheck;
     public Image plowCheck;
@@ -40,17 +41,17 @@ public class ChecklistUIManager : MonoBehaviour
     void Update()
     {
         // Atualiza os checks na UI conforme o estado do solo
-        treatCheck.gameObject.SetActive(soilState.treatedSoil);
-        plowCheck.gameObject.SetActive(soilState.plowedSoil);
-        plantCheck.gameObject.SetActive(soilState.plantedSoil);
-        waterCheck.gameObject.SetActive(soilState.isWatered);
+        treatCheck.gameObject.SetActive(soilManager.AllSoilsTreated());
+        plowCheck.gameObject.SetActive(soilManager.AllSoilsPlowed());
+        plantCheck.gameObject.SetActive(soilManager.AllSoilsPlanted());
+        waterCheck.gameObject.SetActive(soilManager.AllSoilsWatered());
 
         // Verifica se todas as tarefas foram completadas
         if (!tarefasCompletas &&
-            soilState.treatedSoil &&
-            soilState.plowedSoil &&
-            soilState.plantedSoil &&
-            soilState.isWatered)
+            soilManager.AllSoilsTreated() &&
+            soilManager.AllSoilsPlowed() &&
+            soilManager.AllSoilsPlanted() &&
+            soilManager.AllSoilsWatered())
         {
             tarefa01Concluida = true;
             tarefasCompletas = true;

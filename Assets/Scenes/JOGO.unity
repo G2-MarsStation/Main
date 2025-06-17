@@ -699,6 +699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soilState: {fileID: 1519416638}
+  soilManager: {fileID: 688984113}
   treatCheck: {fileID: 637493726}
   plowCheck: {fileID: 2131620551}
   plantCheck: {fileID: 1853781482}
@@ -707,6 +708,7 @@ MonoBehaviour:
   Tarefas01: {fileID: 2040504541}
   Tarefas02: {fileID: 1812743091}
   tarefasCompletas: 0
+  checkSprite: {fileID: 0}
   tarefa01Concluida: 0
 --- !u!1 &132653706 stripped
 GameObject:
@@ -3556,7 +3558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63c60bb6ae497742a5e4858d97bd25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treatedSoil: 1
+  treatedSoil: 0
   plowedSoil: 0
   plantedSoil: 0
   isWatered: 0
@@ -17731,7 +17733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63c60bb6ae497742a5e4858d97bd25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treatedSoil: 1
+  treatedSoil: 0
   plowedSoil: 0
   plantedSoil: 0
   isWatered: 0
