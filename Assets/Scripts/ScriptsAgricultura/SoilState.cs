@@ -12,12 +12,16 @@ public class SoilState : MonoBehaviour
     private bool[] pointsUsed;
     public bool[] potatoWatered;
 
+    public GameObject terraArada;
+
     public int maxPlants => plantPoints.Length;
 
     void Start()
     {
         if (plantPoints != null && plantPoints.Length > 0)
         {
+            terraArada.SetActive(false);
+
             pointsUsed = new bool[plantPoints.Length];
             potatoWatered = new bool[plantPoints.Length];
         }
@@ -25,12 +29,16 @@ public class SoilState : MonoBehaviour
     public void CheckSoilTreated()
     {
         treatedSoil = true;
+         
+    Debug.Log("Terra arada apareceu!");
+
         Debug.Log("Solo tratado");
     }
 
     public void CheckPlowedSoil()
     {
         plowedSoil = true;
+        terraArada.SetActive(true);
         Debug.Log("Solo arado");
     }
     private void CheckPlantedSoil()

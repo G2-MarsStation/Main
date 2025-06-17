@@ -8,12 +8,17 @@ public class Sleeping : MonoBehaviour
 
     private bool jogadorPerto = false;
 
+    private ChecklistUIManager checklist;
+
     void Start()
     {
         if (cicloDiaNoite == null)
         {
             cicloDiaNoite = FindFirstObjectByType<CicloDiaNoite>();
         }
+
+        checklist = FindObjectOfType<ChecklistUIManager>();
+
     }
 
     void Update()
@@ -24,8 +29,11 @@ public class Sleeping : MonoBehaviour
             {
                 cicloDiaNoite.VoltarParaDia();
 
+
                 Debug.Log("Você dormiu. Um novo dia começou!");
                 sleepFade.TriggerSleepUI();
+
+                checklist?.MarcarTarefaDormir();
             }
             else
             {

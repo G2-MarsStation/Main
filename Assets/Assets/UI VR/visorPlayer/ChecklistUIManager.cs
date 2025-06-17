@@ -11,10 +11,15 @@ public class ChecklistUIManager : MonoBehaviour
     public Image plantCheck;
     public Image waterCheck;
 
+    public Image sleepCheck;
+
     public GameObject Tarefas01;
     public GameObject Tarefas02;
     private CanvasGroup tarefa01Group;
     public bool tarefasCompletas = false;
+
+    public Sprite checkSprite; // o ícone de "check"
+
 
     void Start()
     {
@@ -27,6 +32,9 @@ public class ChecklistUIManager : MonoBehaviour
         plowCheck.gameObject.SetActive(false);
         plantCheck.gameObject.SetActive(false);
         waterCheck.gameObject.SetActive(false);
+
+        sleepCheck.gameObject.SetActive(false);
+
     }
 
     void Update()
@@ -48,6 +56,12 @@ public class ChecklistUIManager : MonoBehaviour
             tarefasCompletas = true;
             StartCoroutine(FadeOutTarefa01());
         }
+    }
+
+    public void MarcarTarefaDormir()
+    {
+        sleepCheck.gameObject.SetActive(true);
+        Debug.Log("Tarefa de dormir marcada!");
     }
 
     IEnumerator FadeOutTarefa01()

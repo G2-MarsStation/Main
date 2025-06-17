@@ -32,6 +32,7 @@ public class SoilManager : MonoBehaviour
         {
             Debug.Log("Concluido");
         }
+     
     }
 
     public bool AllSoilsTreated()
