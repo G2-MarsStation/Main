@@ -32,7 +32,8 @@ public class Watering : MonoBehaviour
     private void Update()
     {
         // Só funciona na fase de regar
-        if (SoilManager.instance.currentPhase != SoilPhase.Water) return;
+        if (SoilManager.instance.currentPhase != SoilPhase.Water &&
+    SoilManager.instance.currentPhase != SoilPhase.Water2) return;
 
         if (nearSoil && Input.GetKey(waterKey))
         {

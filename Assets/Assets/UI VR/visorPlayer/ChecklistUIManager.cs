@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class ChecklistUIManager : MonoBehaviour
 {
     public SoilState soilState;
+    public SoilManager soilManager;
 
     public Image treatCheck;
     public Image plowCheck;
@@ -12,6 +13,7 @@ public class ChecklistUIManager : MonoBehaviour
     public Image waterCheck;
 
     public Image sleepCheck;
+    public Image water2Check;
 
     public GameObject Tarefas01;
     public GameObject Tarefas02;
@@ -24,37 +26,43 @@ public class ChecklistUIManager : MonoBehaviour
     void Start()
     {
         tarefa01Group = Tarefas01.GetComponent<CanvasGroup>();
-        tarefa01Group.alpha = 1f; // garante que esteja visível no início
-        Tarefas02.SetActive(false); // desativa tarefas 2 no começo
+        tarefa01Group.alpha = 1f;
+        Tarefas02.SetActive(false);
 
-        // Deixa as imagens de check invisíveis no começo
         treatCheck.gameObject.SetActive(false);
         plowCheck.gameObject.SetActive(false);
         plantCheck.gameObject.SetActive(false);
         waterCheck.gameObject.SetActive(false);
+        water2Check.gameObject.SetActive(false);  // inicializa invisível
 
         sleepCheck.gameObject.SetActive(false);
-
     }
 
     void Update()
     {
-        // Atualiza os checks na UI conforme o estado do solo
-        treatCheck.gameObject.SetActive(soilState.treatedSoil);
-        plowCheck.gameObject.SetActive(soilState.plowedSoil);
-        plantCheck.gameObject.SetActive(soilState.plantedSoil);
-        waterCheck.gameObject.SetActive(soilState.isWatered);
-
-        // Verifica se todas as tarefas foram completadas
-        if (!tarefasCompletas &&
-            soilState.treatedSoil &&
-            soilState.plowedSoil &&
-            soilState.plantedSoil &&
-            soilState.isWatered)
+        if (!tarefa01Concluida)
         {
-            tarefa01Concluida = true;
-            tarefasCompletas = true;
-            StartCoroutine(FadeOutTarefa01());
+            // Atualiza os checks do Checklist 1
+            treatCheck.gameObject.SetActive(soilManager.AllSoilsTreated());
+            plowCheck.gameObject.SetActive(soilManager.AllSoilsPlowed());
+            plantCheck.gameObject.SetActive(soilManager.AllSoilsPlanted());
+            waterCheck.gameObject.SetActive(soilManager.currentPhase == SoilPhase.Water && soilManager.AllSoilsWatered());
+
+            // Verifica se terminou todas as tarefas do checklist 1
+            if (soilManager.AllSoilsTreated() &&
+                soilManager.AllSoilsPlowed() &&
+                soilManager.AllSoilsPlanted() &&
+                (soilManager.currentPhase == SoilPhase.Water && soilManager.AllSoilsWatered()))
+            {
+                tarefa01Concluida = true;
+                StartCoroutine(FadeOutTarefa01());
+            }
+        }
+        else
+        {
+            // Atualiza os checks do Checklist 2
+            sleepCheck.gameObject.SetActive(soilManager.currentPhase == SoilPhase.Water2); // Fica checkado quando avança para Water2 após dormir
+            water2Check.gameObject.SetActive(soilManager.currentPhase == SoilPhase.Water2 && soilManager.AllSoilsWatered());
         }
     }
 
