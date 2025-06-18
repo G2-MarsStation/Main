@@ -10,6 +10,8 @@ public class PlayerControllerVR : MonoBehaviour
     public float oxygenInterval = 5f;
 
     private bool isDeadLoad = true;
+
+    public UnityEngine.UI.Image oxygenBar; // arraste aqui a barra de UI no inspector
     void Start()
     {
         //Oxigênio do player
@@ -35,6 +37,11 @@ public class PlayerControllerVR : MonoBehaviour
             if (isDeadLoad) SceneManager.LoadScene("Death VR");
             isDeadLoad = false;
         }
-        
+
+        if (oxygenBar != null)
+        {
+            oxygenBar.fillAmount = currentOxygen / maxOxygen;
+        }
+
     }   
 }
