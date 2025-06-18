@@ -7,9 +7,6 @@ public class OxygenRefil : MonoBehaviour
 
     public GameObject oxygen;
 
-
-     
-
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
