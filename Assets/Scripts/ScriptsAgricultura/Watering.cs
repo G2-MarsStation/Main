@@ -6,11 +6,12 @@ public class Watering : MonoBehaviour
     
     public KeyCode waterKey = KeyCode.Mouse0;
     public bool nearSoil = false;
-    private GameObject targetSoil;
+    public GameObject targetSoil;
     public float finalTimer = 5f;
     public float currentTimer = 0f;
+    public PlantGrow plantGrow;
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Dirt"))
         {
@@ -19,7 +20,7 @@ public class Watering : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    public void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Dirt"))
         {
@@ -29,7 +30,7 @@ public class Watering : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void Update()
     {
         // Só funciona na fase de regar
         if (SoilManager.instance.currentPhase != SoilPhase.Water &&
@@ -48,12 +49,13 @@ public class Watering : MonoBehaviour
         }
     }
 
-    private void TryWater()
+    public void TryWater()
     {
         if (targetSoil.TryGetComponent(out SoilState soilState))
         {
             if (!soilState.isWatered)
             {
+                plantGrow.Grow();
                 soilState.isWatered = true;
                 Debug.Log("Terra regada com sucesso!");
             }
