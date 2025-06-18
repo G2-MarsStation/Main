@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections.Generic;
+using UnityEngine.XR;
 
 public class Sleeping : MonoBehaviour
 {
@@ -11,6 +13,11 @@ public class Sleeping : MonoBehaviour
     private ChecklistUIManager checklist;
 
     public GameObject faseDormir;
+
+    [Header("Selecione o controle (Left, Right)")]
+    public InputDeviceCharacteristics controllerCharacteristics = InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
+    public bool isGrabbingObject = false; // Defina como true quando estiver pegando algo
+
 
     void Start()
     {

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR;
 
-public class ControleVR : MonoBehaviour
+public class Pulverizador : MonoBehaviour
 {
     [Header("Selecione o controle (Left, Right)")]
     public InputDeviceCharacteristics controllerCharacteristics = InputDeviceCharacteristics.Right | InputDeviceCharacteristics.Controller;
@@ -68,7 +68,7 @@ public class ControleVR : MonoBehaviour
         {
             if (isPressed)
             {
-                Debug.Log("Trigger button pressionado");
+                //Debug.Log("Trigger button pressionado");
             }
         }
     }

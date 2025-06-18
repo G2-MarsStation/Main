@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -12,11 +11,6 @@ public class MenuPrincipal : MonoBehaviour
     public void Jogar()
     {
         SceneManager.LoadScene(1);
-    }
-
-    public void JogarPC()
-    {
-        SceneManager.LoadScene(0);
     }
 
     // Chamada ao clicar no botão "Configurações"

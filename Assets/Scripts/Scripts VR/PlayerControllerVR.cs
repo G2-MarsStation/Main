@@ -1,16 +1,17 @@
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerOxygen : MonoBehaviour
+public class PlayerControllerVR : MonoBehaviour
 {
-    PlayerController playerController;
     public float maxOxygen = 5f;
     public float currentOxygen = 0f;
     public float oxygenTimer = 0f;
     public float oxygenInterval = 5f;
+
+    private bool isDeadLoad = true;
     void Start()
     {
-        playerController = GetComponent<PlayerController>();
         //Oxigênio do player
         currentOxygen = maxOxygen;
     }
@@ -26,13 +27,14 @@ public class PlayerOxygen : MonoBehaviour
                 currentOxygen -= 1;
                 currentOxygen = Mathf.Max(currentOxygen, 0);
                 oxygenTimer = oxygenInterval;
-                Debug.Log($"Oxigênio: {currentOxygen} | Vida: {playerController.currentHealth:F1}");
+                Debug.Log(currentOxygen);
             }
 
-        }
-        else
+        } else
         {
-            playerController.currentHealth -= 1 * Time.deltaTime;
+            if (isDeadLoad) SceneManager.LoadScene("Death VR");
+            isDeadLoad = false;
         }
-    }
+        
+    }   
 }
