@@ -26,7 +26,7 @@ public class PlayerOxygen : MonoBehaviour
                 currentOxygen -= 1;
                 currentOxygen = Mathf.Max(currentOxygen, 0);
                 oxygenTimer = oxygenInterval;
-                Debug.Log($"Oxigênio: {currentOxygen} | Vida: {playerController.currentHealth:F1}");
+                //Debug.Log($"Oxigênio: {currentOxygen} | Vida: {playerController.currentHealth:F1}");
             }
 
         }

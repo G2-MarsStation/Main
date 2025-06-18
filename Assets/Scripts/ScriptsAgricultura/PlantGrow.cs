@@ -6,13 +6,13 @@ public class PlantGrow : MonoBehaviour
     public GameObject stage2Prefab; // Broto
     public GameObject stage3Prefab; // Planta adulta (se quiser futuramente)
 
-    private GameObject currentStage;
-    private int stage = 1;
+    public GameObject currentStage;
+    public int stage = 1;
 
     void Start()
     {
         //// Começa no estágio 1 (semente)
-        //currentStage = Instantiate(stage1Prefab, transform.position, Quaternion.identity, transform);
+        currentStage = Instantiate(stage1Prefab, transform.position, Quaternion.identity, transform);
     }
 
     public void Grow()

@@ -149,6 +149,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1be3c6ada3c05be468d6a4d62b4f2c83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cicloAtual: 0
+  diaAtual: 1
+  tarefa1Concluida: 0
+  tarefa2Concluida: 0
+  direcionalLuz: {fileID: 0}
+  sol: {fileID: 0}
+  lua: {fileID: 0}
+  corLuzDia: {r: 1, g: 1, b: 1, a: 1}
+  corLuzNoite: {r: 0.1, g: 0.1, b: 0.3, a: 1}
+  intensidadeDia: 1
+  intensidadeNoite: 0.5
+  skyboxDia: {fileID: 0}
+  skyboxNoite: {fileID: 0}
+  duracaoTransicao: 5
+  personagem: {fileID: 0}
 --- !u!4 &4147517
 Transform:
   m_ObjectHideFlags: 0
@@ -718,7 +733,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapDistance: 1
   snapRotationReference: {fileID: 0}
-  tutorialScript: {fileID: 0}
 --- !u!65 &125532241
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1164,7 +1178,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapDistance: 1
   snapRotationReference: {fileID: 0}
-  tutorialScript: {fileID: 0}
 --- !u!114 &193684151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1302,7 +1315,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapDistance: 1
   snapRotationReference: {fileID: 0}
-  tutorialScript: {fileID: 0}
 --- !u!114 &199582689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1560,6 +1572,8 @@ MonoBehaviour:
   dormirKey: 102
   sleepFade: {fileID: 2024883517}
   faseDormir: {fileID: 453223838}
+  controllerCharacteristics: 576
+  isGrabbingObject: 0
 --- !u!1 &213696912
 GameObject:
   m_ObjectHideFlags: 0
@@ -1828,7 +1842,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapDistance: 1
   snapRotationReference: {fileID: 0}
-  tutorialScript: {fileID: 0}
 --- !u!114 &225065699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2847,7 +2860,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapDistance: 1
   snapRotationReference: {fileID: 0}
-  tutorialScript: {fileID: 0}
 --- !u!114 &330530280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3376,7 +3388,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapDistance: 1
   snapRotationReference: {fileID: 0}
-  tutorialScript: {fileID: 0}
 --- !u!114 &360215435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5646,7 +5657,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapDistance: 1
   snapRotationReference: {fileID: 0}
-  tutorialScript: {fileID: 0}
 --- !u!114 &534611384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5758,10 +5768,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sandstormParticles: {fileID: 1005427662}
-  stormSound: {fileID: 321380180}
   duration: 20
   delayBetweenStorms: 10
-  alertUI: {fileID: 321380179}
 --- !u!1 &571335887
 GameObject:
   m_ObjectHideFlags: 0
@@ -6041,7 +6049,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapDistance: 1
   snapRotationReference: {fileID: 0}
-  tutorialScript: {fileID: 0}
 --- !u!114 &571825694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6554,7 +6561,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapDistance: 1
   snapRotationReference: {fileID: 0}
-  tutorialScript: {fileID: 0}
 --- !u!114 &617891461
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7185,10 +7191,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sandstormParticles: {fileID: 869838364}
-  stormSound: {fileID: 321380180}
   duration: 20
   delayBetweenStorms: 10
-  alertUI: {fileID: 321380179}
 --- !u!4 &685219906 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
@@ -13233,10 +13237,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sandstormParticles: {fileID: 869838364}
-  stormSound: {fileID: 0}
   duration: 20
   delayBetweenStorms: 5
-  alertUI: {fileID: 321380179}
 --- !u!82 &869838367
 AudioSource:
   m_ObjectHideFlags: 0
@@ -13657,7 +13659,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapDistance: 1
   snapRotationReference: {fileID: 0}
-  tutorialScript: {fileID: 0}
 --- !u!114 &890335804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15179,10 +15180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sandstormParticles: {fileID: 869838364}
-  stormSound: {fileID: 321380180}
   duration: 20
   delayBetweenStorms: 10
-  alertUI: {fileID: 321380179}
 --- !u!198 &1005427662 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 198323926012039596, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
@@ -15772,10 +15771,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sandstormParticles: {fileID: 869838364}
-  stormSound: {fileID: 321380180}
   duration: 20
   delayBetweenStorms: 10
-  alertUI: {fileID: 321380179}
 --- !u!4 &1079658395 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
@@ -16254,8 +16251,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refilRate: 5
-  refilAudio: {fileID: 1120136156}
-  oxygen: {fileID: 615310617}
 --- !u!65 &1120136155
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16822,7 +16817,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapDistance: 1
   snapRotationReference: {fileID: 0}
-  tutorialScript: {fileID: 0}
 --- !u!114 &1166133906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17652,7 +17646,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapDistance: 1
   snapRotationReference: {fileID: 0}
-  tutorialScript: {fileID: 0}
 --- !u!114 &1267872405
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18640,7 +18633,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapDistance: 1
   snapRotationReference: {fileID: 0}
-  tutorialScript: {fileID: 0}
 --- !u!114 &1366628963
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18857,10 +18849,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sandstormParticles: {fileID: 869838364}
-  stormSound: {fileID: 321380180}
   duration: 20
   delayBetweenStorms: 10
-  alertUI: {fileID: 321380179}
 --- !u!4 &1405660211 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4120665018684530, guid: c23281b1e17c88046bda7844edc5694f, type: 3}
@@ -19807,7 +19797,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapDistance: 1
   snapRotationReference: {fileID: 0}
-  tutorialScript: {fileID: 0}
 --- !u!114 &1473751336
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20631,7 +20620,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapDistance: 1
   snapRotationReference: {fileID: 0}
-  tutorialScript: {fileID: 1538721738}
 --- !u!65 &1538721734
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21548,7 +21536,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapDistance: 1
   snapRotationReference: {fileID: 0}
-  tutorialScript: {fileID: 0}
 --- !u!114 &1730019755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22361,7 +22348,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapDistance: 1
   snapRotationReference: {fileID: 0}
-  tutorialScript: {fileID: 0}
 --- !u!114 &1867132361
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23131,7 +23117,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapDistance: 1
   snapRotationReference: {fileID: 0}
-  tutorialScript: {fileID: 0}
 --- !u!114 &1939269334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24183,7 +24168,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snapDistance: 1
   snapRotationReference: {fileID: 0}
-  tutorialScript: {fileID: 0}
 --- !u!114 &2129994843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24581,6 +24565,10 @@ PrefabInstance:
     - target: {fileID: 6111343816558472089, guid: 8f83770360f0cb04684c039411943975, type: 3}
       propertyPath: isDead
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7463223559715632467, guid: 8f83770360f0cb04684c039411943975, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8365246515650016883, guid: 8f83770360f0cb04684c039411943975, type: 3}
       propertyPath: oxygenBar
