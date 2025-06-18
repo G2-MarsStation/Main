@@ -6,6 +6,9 @@ public class AreaDetector : MonoBehaviour
 
     public Transform snapRotationReference;
 
+    [Tooltip("Vincule o script TutorialOnPickup aqui")]
+    public TutorialUI tutorialScript;
+
     public bool IsObjectInside(GameObject grababble)
     {
         // Salva a distância em que o player pode agarrar o objeto
@@ -23,6 +26,8 @@ public class AreaDetector : MonoBehaviour
         {
             GrabbableObject grabbable = other.GetComponent<GrabbableObject>();
 
+          
+
             // Se o componente existir, notifica que o objeto está dentro da área
             if (grabbable != null)
             {
@@ -30,6 +35,8 @@ public class AreaDetector : MonoBehaviour
             }
         }
     }
+
+
 
     private void OnTriggerExit(Collider other)
     {

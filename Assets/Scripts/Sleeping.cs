@@ -10,6 +10,8 @@ public class Sleeping : MonoBehaviour
 
     private ChecklistUIManager checklist;
 
+    public GameObject faseDormir;
+
     void Start()
     {
         if (cicloDiaNoite == null)
@@ -18,6 +20,8 @@ public class Sleeping : MonoBehaviour
         }
 
         checklist = FindObjectOfType<ChecklistUIManager>();
+
+        faseDormir.SetActive(false);
 
     }
 
@@ -46,7 +50,8 @@ public class Sleeping : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             jogadorPerto = true;
-            Debug.Log("Pressione 'E' para dormir.");
+            faseDormir.SetActive(true);
+            Debug.Log("Pressione 'F' para dormir.");
             // Aqui você pode adicionar uma UI que aparece escrito: "Pressione E para dormir"
         }
     }
@@ -56,6 +61,7 @@ public class Sleeping : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             jogadorPerto = false;
+            faseDormir.SetActive(false);
             Debug.Log("Saiu da cama.");
             // Aqui você pode remover a UI se tiver
         }

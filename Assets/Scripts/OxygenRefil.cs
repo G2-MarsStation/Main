@@ -5,10 +5,17 @@ public class OxygenRefil : MonoBehaviour
     public float refilRate = 5f;
     public AudioSource refilAudio;
 
+    public GameObject oxygen;
+
+
+     
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            oxygen.SetActive(true);
+
             //Pega o script do PlayerOxygen
             PlayerOxygen playerOxygen = other.GetComponent<PlayerOxygen>();
 
@@ -26,5 +33,17 @@ public class OxygenRefil : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            oxygen.SetActive(false);
+            Debug.Log("Saiu de perto.");
+            // Aqui você pode remover a UI se tiver
+        }
+    }
+
+
 }
 

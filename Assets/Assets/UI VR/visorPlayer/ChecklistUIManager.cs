@@ -20,7 +20,12 @@ public class ChecklistUIManager : MonoBehaviour
     private CanvasGroup tarefa01Group;
     public bool tarefasCompletas = false;
 
-    public Sprite checkSprite; // o ícone de "check"
+    //public Sprite checkSprite; // o ícone de "check"
+
+    public GameObject fasePulverizar;
+    public GameObject faseArar;
+    public GameObject fasePlantar;
+
 
 
     void Start()

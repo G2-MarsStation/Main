@@ -9,13 +9,24 @@ public class DirtApplication : MonoBehaviour
     private bool nearSoil = false;
     private GameObject targetSoil;
 
+    //public GameObject fasePulverizar;
+
+
+    void Start()
+    {
+
+        //fasePulverizar.SetActive(false);
+
+    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Dirt"))
         {
             nearSoil = true;
             targetSoil = other.gameObject;
-        };
+            //fasePulverizar.SetActive(true);
+        }
+        ;
     }
 
     private void OnTriggerExit(Collider other)
