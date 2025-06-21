@@ -55,7 +55,7 @@ public class Watering : MonoBehaviour
         {
             if (!soilState.isWatered)
             {
-                plantGrow.Grow();
+                soilState.GrowPlants();
                 soilState.isWatered = true;
                 Debug.Log("Terra regada com sucesso!");
             }
