@@ -13,6 +13,7 @@ TagManager:
   - Actors
   - Potato
   - Regador
+  - PainelSolar
   layers:
   - Default
   - TransparentFX

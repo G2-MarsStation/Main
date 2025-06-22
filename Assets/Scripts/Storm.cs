@@ -1,55 +1,65 @@
-using System.Collections;
 using UnityEngine;
 
 public class Storm : MonoBehaviour
 {
     public ParticleSystem sandstormParticles;
-    //public AudioSource sandstormSound;
     public float duration = 20f;
-    public float delayBetweenStorms = 10f;
 
     private bool stormActive = false;
 
+    public SandstormAlertUI alertaUI; // arraste no Inspector
+
+
     void Start()
     {
-        StartCoroutine(StormRoutine());
+        // Não inicia automaticamente a tempestade
+        // StartCoroutine(StormRoutine());
     }
-    IEnumerator StormRoutine()
+
+    // Método público para iniciar a tempestade (chamado pelo PainelSolarManager)
+    public void StartStorm()
     {
-        while (true)
+        if (!stormActive)
         {
-            yield return new WaitForSeconds(delayBetweenStorms);
-            StartStorm();
-            yield return new WaitForSeconds(duration);
-            EndStorm();
+            stormActive = true;
+
+            if (sandstormParticles != null)
+                sandstormParticles.Play();
+
+            RenderSettings.fog = true;
+            RenderSettings.fogColor = new Color(0.8f, 0.6f, 0.4f, 1f);
+            RenderSettings.fogDensity = 1f;
+            RenderSettings.fogStartDistance = 0f;
+            RenderSettings.fogEndDistance = 50f;
+
+            // ATIVA ALERTA UI
+            if (alertaUI != null)
+                alertaUI.ShowAlert();
+
+            Debug.Log("Tempestade iniciada");
+
+            // Opcional: parar a tempestade depois da duração
+            Invoke(nameof(EndStorm), duration);
         }
     }
 
-    void StartStorm()
+    // Método para encerrar a tempestade
+    public void EndStorm()
     {
-        stormActive = true;
-        if(sandstormParticles != null)
+        if (stormActive)
         {
-            sandstormParticles.Play();
-        }
-        //perguntar pro chat q porressa
-        RenderSettings.fog = true;
-        RenderSettings.fogColor = new Color(0.8f, 0.6f, 0.4f, 1f);
-        RenderSettings.fogDensity = 1f;
-        RenderSettings.fogStartDistance = 0f;
-        RenderSettings.fogEndDistance = 50f;
-        Debug.Log("tempestade iniciada");
-    }
+            stormActive = false;
 
-    void EndStorm()
-    {
-        stormActive = false;
-        if (sandstormParticles != null)
-        {
-            sandstormParticles.Stop();
-        }
-        RenderSettings.fog = false;
+            if (sandstormParticles != null)
+                sandstormParticles.Stop();
 
-        Debug.Log("paro a tempestade");
+            RenderSettings.fog = false;
+
+            // DESATIVA ALERTA UI
+            if (alertaUI != null)
+                alertaUI.HideAlert();
+
+            Debug.Log("Tempestade terminou");
+        }
     }
 }

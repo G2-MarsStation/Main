@@ -8,10 +8,13 @@ public class PlayerOxygen : MonoBehaviour
     public float currentOxygen = 0f;
     public float oxygenTimer = 0f;
     public float oxygenInterval = 5f;
+
+    public UnityEngine.UI.Image oxygenBar;
     void Start()
     {
         playerController = GetComponent<PlayerController>();
         //Oxigênio do player
+
         currentOxygen = maxOxygen;
     }
 
@@ -33,6 +36,11 @@ public class PlayerOxygen : MonoBehaviour
         else
         {
             playerController.currentHealth -= 1 * Time.deltaTime;
+        }
+
+        if (oxygenBar != null)
+        {
+            oxygenBar.fillAmount = currentOxygen / maxOxygen;
         }
     }
 }

@@ -1,13 +1,20 @@
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class OxygenRefil : MonoBehaviour
 {
     public float refilRate = 5f;
+    public PainelSolarManager painelSolarManager; // arraste no Inspector
+    private bool jaAtivouPainelTorto = false; // para ativar só uma vez
+
+
 
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            painelSolarManager.FicarTortoTodos();
+
             //Pega o script do PlayerOxygen
             if (CheckVR.IsVR())
             {
@@ -20,6 +27,8 @@ public class OxygenRefil : MonoBehaviour
                         //abastece e limita o oxigênio do player para não passar do máximo permitido
                         playerOxygen.currentOxygen += refilRate;
                         playerOxygen.currentOxygen = Mathf.Min(playerOxygen.currentOxygen, playerOxygen.maxOxygen);
+
+                        
                     }
                 }
 
@@ -36,10 +45,21 @@ public class OxygenRefil : MonoBehaviour
                         //abastece e limita o oxigênio do player para não passar do máximo permitido
                         playerOxygen.currentOxygen += refilRate;
                         playerOxygen.currentOxygen = Mathf.Min(playerOxygen.currentOxygen, playerOxygen.maxOxygen);
+                        AtivarPainelTorto();
+
                     }
                 }
             }
                 
+        }
+    }
+    void AtivarPainelTorto()
+    {
+        if (!jaAtivouPainelTorto && painelSolarManager != null)
+        {
+            painelSolarManager.FicarTortoTodos();
+            jaAtivouPainelTorto = true; // evita ativar várias vezes
+            Debug.Log("Painéis solares ficaram tortos!");
         }
     }
 }

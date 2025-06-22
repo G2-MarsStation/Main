@@ -19,6 +19,8 @@ public class SoilManager : MonoBehaviour
         {
             currentPhase = SoilPhase.Plow;
         }
+
+
         if(currentPhase == SoilPhase.Plow && AllSoilsPlowed())
         {
             currentPhase = SoilPhase.Plant;
@@ -36,6 +38,8 @@ public class SoilManager : MonoBehaviour
         {
             Debug.Log("SEGUNDA REGA COMPLETA! Fase finalizada.");
         }
+
+
     }
 
     public bool AllSoilsTreated()
