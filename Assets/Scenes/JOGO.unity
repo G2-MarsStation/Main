@@ -15004,7 +15004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2735432993263437377, guid: e8e820a7c17739c48b824e84c3e95997, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.075643
+      value: -0.0743
       objectReference: {fileID: 0}
     - target: {fileID: 2735432993263437377, guid: e8e820a7c17739c48b824e84c3e95997, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15012,7 +15012,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2735432993263437377, guid: e8e820a7c17739c48b824e84c3e95997, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.010706
+      value: -0.011
       objectReference: {fileID: 0}
     - target: {fileID: 2743720296773033599, guid: e8e820a7c17739c48b824e84c3e95997, type: 3}
       propertyPath: m_Layer
@@ -15148,7 +15148,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4718573226708107119, guid: e8e820a7c17739c48b824e84c3e95997, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.072909
+      value: -0.07156591
       objectReference: {fileID: 0}
     - target: {fileID: 4718573226708107119, guid: e8e820a7c17739c48b824e84c3e95997, type: 3}
       propertyPath: m_LocalPosition.y
@@ -15156,7 +15156,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4718573226708107119, guid: e8e820a7c17739c48b824e84c3e95997, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.012726
+      value: 0.0124321375
       objectReference: {fileID: 0}
     - target: {fileID: 4840688603202200766, guid: e8e820a7c17739c48b824e84c3e95997, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -17128,6 +17128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   refilRate: 5
+  audioFinal: {fileID: 1120136156}
   painelSolarManager: {fileID: 1750368467}
 --- !u!65 &1120136155
 BoxCollider:
@@ -25226,7 +25227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checklistUI: {fileID: 131056905}
   audioFinal: {fileID: 2017334677}
-  cenaFinal: Death
+  cenaFinal: End Game
 --- !u!65 &2017334679
 BoxCollider:
   m_ObjectHideFlags: 0

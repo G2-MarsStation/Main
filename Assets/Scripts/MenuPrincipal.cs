@@ -8,15 +8,15 @@ public class MenuPrincipal : MonoBehaviour
     public string nomeCenaConfiguracoes = "Configuracoes";
 
     // Chamada ao clicar no botão "Jogar"
-    public void Jogar()
+    public void JogarVR()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(5);
     }
 
     // Chamada ao clicar no botão "Configurações"
-    public void AbrirConfiguracoes()
+    public void JogarPC()
     {
-        SceneManager.LoadScene(nomeCenaConfiguracoes);
+        SceneManager.LoadScene(0);
     }
 
     // Chamada ao clicar no botão "Sair"
