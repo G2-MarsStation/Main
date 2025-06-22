@@ -14,6 +14,8 @@ public class ChecklistUIManager : MonoBehaviour
 
     public Image sleepCheck;
     public Image water2Check;
+    public Image harvestCheck;
+    public Image baseCheck;
 
     public GameObject Tarefas01;
     public GameObject Tarefas02;
@@ -41,6 +43,7 @@ public class ChecklistUIManager : MonoBehaviour
         water2Check.gameObject.SetActive(false);  // inicializa invisível
 
         sleepCheck.gameObject.SetActive(false);
+        harvestCheck.gameObject.SetActive(false);
     }
 
     void Update()
@@ -96,6 +99,32 @@ public class ChecklistUIManager : MonoBehaviour
         Tarefas02.SetActive(true);
         Debug.Log("Fade concluído.");
     }
+
+    public void MarcarTarefaColheita()
+    {
+        if (harvestCheck == null)
+        {
+            Debug.LogWarning("O harvestCheck não está atribuído no inspetor!");
+            return;
+        }
+
+        harvestCheck.gameObject.SetActive(true);
+        Debug.Log("Tarefa de colher marcada!");
+    }
+
+    public void MarcarTarefaBase()
+    {
+        if (baseCheck != null)
+        {
+            baseCheck.gameObject.SetActive(true);
+            Debug.Log("Tarefa de voltar para a base marcada!");
+        }
+        else
+        {
+            Debug.LogWarning("BaseCheck não está atribuído no inspetor.");
+        }
+    }
+
 
     [HideInInspector] public bool tarefa01Concluida = false;
 }

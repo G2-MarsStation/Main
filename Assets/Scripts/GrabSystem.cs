@@ -99,19 +99,23 @@ public class GrabSystem : MonoBehaviour
         // Rotacionar objeto na mão
         if (holdObject != null)
         {
-            float rotation = 0f;
-
-            if (Input.GetKey(rotateLeftKey))
+            // Verifica se o objeto NÃO é de colheita
+            if (holdScript == null || !holdScript.isHarvestItem)
             {
-                rotation -= rotationSpeed * Time.deltaTime;
-            }
+                float rotation = 0f;
 
-            if (Input.GetKey(rotateRightKey))
-            {
-                rotation += rotationSpeed * Time.deltaTime;
-            }
+                if (Input.GetKey(rotateLeftKey))
+                {
+                    rotation -= rotationSpeed * Time.deltaTime;
+                }
 
-            holdObject.transform.Rotate(Vector3.up, rotation, Space.Self);
+                if (Input.GetKey(rotateRightKey))
+                {
+                    rotation += rotationSpeed * Time.deltaTime;
+                }
+
+                holdObject.transform.Rotate(Vector3.up, rotation, Space.Self);
+            }
         }
     }
 
