@@ -13,7 +13,6 @@ public class GrabSystem : MonoBehaviour
     public float rotationSpeed;
 
     public Transform holdPoint;
-    //Referencia ao objeto
     private GameObject holdObject;
 
     private GrabbableObject holdScript;
@@ -21,78 +20,50 @@ public class GrabSystem : MonoBehaviour
     void Update()
     {
         Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
-
         RaycastHit raycastHit;
 
         Debug.DrawRay(ray.origin, ray.direction, Color.blue);
 
         if (Input.GetKeyDown(grabKey))
         {
-            //Se nao estiver segurando nenhum objeto
+            // Se não estiver segurando nenhum objeto
             if (holdObject == null)
             {
                 if (Physics.Raycast(ray, out raycastHit, grabDistance))
                 {
-                    if (raycastHit.collider.CompareTag("Grababble") || raycastHit.collider.CompareTag("Potato") || raycastHit.collider.CompareTag("Regador"))
+                    if (raycastHit.collider.CompareTag("Grababble") ||
+                        raycastHit.collider.CompareTag("Potato") ||
+                        raycastHit.collider.CompareTag("Regador"))
                     {
                         holdObject = raycastHit.collider.gameObject;
-
                         holdScript = holdObject.GetComponent<GrabbableObject>();
                     }
 
                     if (holdScript != null)
                     {
-                        holdScript.Grab(holdPoint);
+                        // VERIFICA SE PODE PEGAR
+                        if (holdScript.PodeSerPego())
+                        {
+                            holdScript.Grab(holdPoint);
+                        }
+                        else
+                        {
+                            Debug.Log("Você precisa consertar os painéis solares antes de colher.");
+                            holdScript = null;
+                            holdObject = null;
+                        }
                     }
                 }
             }
             else
             {
                 holdScript.Release();
-
                 holdScript = null;
                 holdObject = null;
-
             }
         }
 
-        //if (Input.GetKeyDown(KeyCode.G) && holdObject != null && holdObject.CompareTag("Potato"))
-        //{
-        //    Ray ray2 = new Ray(cameraTransform.position, cameraTransform.forward);
-        //    if (Physics.Raycast(ray2, out RaycastHit hit, 2f))
-        //    {
-        //        SoilState soil = hit.collider.GetComponent<SoilState>();
-
-        //        // Verifica se o solo é válido, está arado e se a fase atual é PLANT
-        //        if (soil != null
-        //            && soil.plowedSoil
-        //            && SoilManager.instance != null
-        //            && SoilManager.instance.currentPhase == SoilPhase.Plant)
-        //        {
-        //            bool planted = soil.PlantBatata();
-        //            if (planted)
-        //            {
-        //                if (holdObject != null)
-        //                {
-        //                    Destroy(holdObject);
-        //                    holdObject = null;
-        //                    holdScript = null;
-        //                    Debug.Log("Batata plantada com sucesso!");
-        //                    return;
-        //                }   
-        //            }
-        //            else
-        //            {
-        //                Debug.Log("Este solo já está com todas as batatas plantadas.");
-        //            }
-        //        }
-        //        else
-        //        {
-        //            Debug.Log("Você ainda não pode plantar! Certifique-se de que todos os solos foram arados.");
-        //        }
-        //    }
-        //}
-
+        // Plantar a batata
         if (Input.GetKeyDown(KeyCode.G) && holdObject != null && holdObject.CompareTag("Potato"))
         {
             Collider[] colliders = Physics.OverlapSphere(holdObject.transform.position, 0.5f);
@@ -101,10 +72,10 @@ public class GrabSystem : MonoBehaviour
             {
                 SoilState soil = col.GetComponent<SoilState>();
 
-                if (soil != null
-                    && soil.plowedSoil
-                    && SoilManager.instance != null
-                    && SoilManager.instance.currentPhase == SoilPhase.Plant)
+                if (soil != null &&
+                    soil.plowedSoil &&
+                    SoilManager.instance != null &&
+                    SoilManager.instance.currentPhase == SoilPhase.Plant)
                 {
                     bool planted = soil.PlantBatata();
                     if (planted)
@@ -125,27 +96,22 @@ public class GrabSystem : MonoBehaviour
             Debug.Log("Nenhum terreno encontrado próximo para plantar.");
         }
 
+        // Rotacionar objeto na mão
         if (holdObject != null)
         {
             float rotation = 0f;
 
-            // Adiciona rotaçao negativa, gira o objeto para a direita
             if (Input.GetKey(rotateLeftKey))
             {
                 rotation -= rotationSpeed * Time.deltaTime;
             }
 
-            // Adiciona rotaçao positiva, gira o objeto para a esquerda
             if (Input.GetKey(rotateRightKey))
             {
                 rotation += rotationSpeed * Time.deltaTime;
-
             }
 
-            // Space.Self -> ele mesmo
             holdObject.transform.Rotate(Vector3.up, rotation, Space.Self);
-
-
         }
     }
 

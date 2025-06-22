@@ -719,6 +719,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   snapSpeed: 5
+  isHarvestItem: 0
 --- !u!114 &125532240
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1194,6 +1195,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   snapSpeed: 5
+  isHarvestItem: 0
 --- !u!1001 &199582685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1333,6 +1335,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   snapSpeed: 5
+  isHarvestItem: 0
 --- !u!65 &199582690
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1905,6 +1908,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   snapSpeed: 5
+  isHarvestItem: 0
 --- !u!1 &233543942 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4708706568560187366, guid: e8e820a7c17739c48b824e84c3e95997, type: 3}
@@ -2919,6 +2923,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   snapSpeed: 5
+  isHarvestItem: 0
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -3431,6 +3436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   snapSpeed: 5
+  isHarvestItem: 0
 --- !u!1001 &362063228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3837,11 +3843,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treatedSoil: 1
   plowedSoil: 1
-  plantedSoil: 1
-  isWatered: 1
+  plantedSoil: 0
+  isWatered: 0
   plantedObject: {fileID: 253571144468383892, guid: dd7aea126442f474b84dd9e1665893bd, type: 3}
   prefabPhase2: {fileID: 8906747070917393036, guid: b13852cf5eb16d049b26c0097cb98d01, type: 3}
-  prefabPhase3: {fileID: 270343908292331778, guid: 848e71be4b25b3542a1008e2eb10d01d, type: 3}
+  prefabPhase3: {fileID: 7889533983763486741, guid: 4d1d68e9c4637824283f5101b68ce09b, type: 3}
   plantPoints:
   - {fileID: 213696913}
   - {fileID: 542985195}
@@ -5710,6 +5716,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   snapSpeed: 5
+  isHarvestItem: 0
 --- !u!1 &535403828
 GameObject:
   m_ObjectHideFlags: 0
@@ -6207,6 +6214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   snapSpeed: 5
+  isHarvestItem: 0
 --- !u!114 &580212679 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6111343816558472089, guid: 8f83770360f0cb04684c039411943975, type: 3}
@@ -6840,6 +6848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   snapSpeed: 5
+  isHarvestItem: 0
 --- !u!1 &619760248 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6586612397096074335, guid: e8e820a7c17739c48b824e84c3e95997, type: 3}
@@ -7651,8 +7660,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ativado: 0
   painelSolarManager: {fileID: 1750368467}
-  player: {fileID: 0}
-  distanciaPermitida: 2.5
+  player: {fileID: 1243197302}
+  distanciaPermitida: 5
 --- !u!65 &692641782
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9021,8 +9030,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ativado: 0
   painelSolarManager: {fileID: 1750368467}
-  player: {fileID: 0}
-  distanciaPermitida: 2.5
+  player: {fileID: 1243197302}
+  distanciaPermitida: 5
 --- !u!65 &867424734
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14328,6 +14337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   snapSpeed: 5
+  isHarvestItem: 0
 --- !u!1001 &895436811
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17631,6 +17641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   snapSpeed: 5
+  isHarvestItem: 0
 --- !u!1 &1175677502 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7083915490245782010, guid: 3ddccf0af3a8260468fa9bf96900e21a, type: 3}
@@ -18572,6 +18583,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   snapSpeed: 5
+  isHarvestItem: 0
 --- !u!1 &1275631637
 GameObject:
   m_ObjectHideFlags: 0
@@ -19559,6 +19571,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   snapSpeed: 5
+  isHarvestItem: 0
 --- !u!4 &1366628964 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b5d4e5c0a8cd2e846932d3031bac660e, type: 3}
@@ -20196,8 +20209,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ativado: 0
   painelSolarManager: {fileID: 1750368467}
-  player: {fileID: 0}
-  distanciaPermitida: 2.5
+  player: {fileID: 1243197302}
+  distanciaPermitida: 5
 --- !u!65 &1438769784
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20892,6 +20905,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   snapSpeed: 5
+  isHarvestItem: 0
 --- !u!1 &1475215690 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e66d899c4289c62429d2dcc84944ef93, type: 3}
@@ -21391,11 +21405,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   treatedSoil: 1
   plowedSoil: 1
-  plantedSoil: 1
-  isWatered: 1
+  plantedSoil: 0
+  isWatered: 0
   plantedObject: {fileID: 253571144468383892, guid: dd7aea126442f474b84dd9e1665893bd, type: 3}
   prefabPhase2: {fileID: 8906747070917393036, guid: b13852cf5eb16d049b26c0097cb98d01, type: 3}
-  prefabPhase3: {fileID: 270343908292331778, guid: 848e71be4b25b3542a1008e2eb10d01d, type: 3}
+  prefabPhase3: {fileID: 7889533983763486741, guid: 4d1d68e9c4637824283f5101b68ce09b, type: 3}
   plantPoints:
   - {fileID: 334985399}
   - {fileID: 1179401570}
@@ -21676,6 +21690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   snapSpeed: 5
+  isHarvestItem: 0
 --- !u!114 &1538721733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22101,8 +22116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ativado: 0
   painelSolarManager: {fileID: 1750368467}
-  player: {fileID: 0}
-  distanciaPermitida: 2.5
+  player: {fileID: 1243197302}
+  distanciaPermitida: 5
 --- !u!65 &1631072917
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22677,6 +22692,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   snapSpeed: 5
+  isHarvestItem: 0
 --- !u!4 &1746323197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6168005775104451165, guid: e8e820a7c17739c48b824e84c3e95997, type: 3}
@@ -23550,6 +23566,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   snapSpeed: 5
+  isHarvestItem: 0
 --- !u!1 &1867800648 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7083915490245782010, guid: 3ddccf0af3a8260468fa9bf96900e21a, type: 3}
@@ -23691,8 +23708,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ativado: 0
   painelSolarManager: {fileID: 1750368467}
-  player: {fileID: 0}
-  distanciaPermitida: 2.5
+  player: {fileID: 1243197302}
+  distanciaPermitida: 5
 --- !u!1 &1878923533
 GameObject:
   m_ObjectHideFlags: 0
@@ -24124,8 +24141,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ativado: 0
   painelSolarManager: {fileID: 1750368467}
-  player: {fileID: 0}
-  distanciaPermitida: 2.5
+  player: {fileID: 1243197302}
+  distanciaPermitida: 5
 --- !u!65 &1933599446
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24381,6 +24398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   snapSpeed: 5
+  isHarvestItem: 0
 --- !u!1001 &1941666267
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25510,6 +25528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 10
   snapSpeed: 5
+  isHarvestItem: 0
 --- !u!1001 &2130434946
 PrefabInstance:
   m_ObjectHideFlags: 0

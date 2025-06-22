@@ -94,49 +94,6 @@ public class SoilState : MonoBehaviour
         Debug.Log("Solo totalmente regado!");
     }
 
-    //public void GrowPlants()
-    //{
-    //    for (int i = 0; i < plantPoints.Length; i++)
-    //    {
-    //        if (pointsUsed[i])
-    //        {
-    //            Transform point = plantPoints[i];
-
-    //            // Verifica se existe uma planta nesse ponto
-    //            if (point.childCount > 0)
-    //            {
-    //                GameObject currentPlant = point.GetChild(0).gameObject;
-
-    //                // Decide qual é a próxima fase baseado no nome ou algum identificador simples
-    //                GameObject nextPrefab = null;
-
-    //                if (currentPlant.name.Contains("Montinho"))
-    //                {
-    //                    nextPrefab = prefabPhase2;
-    //                }
-    //                else if (currentPlant.name.Contains("Small"))
-    //                {
-    //                    nextPrefab = prefabPhase3;
-    //                }
-    //                else
-    //                {
-    //                    Debug.Log("Planta já está na fase final.");
-    //                    continue;
-    //                }
-
-    //                // Destrói a planta atual
-    //                Destroy(currentPlant);
-
-    //                // Instancia a próxima fase
-    //                GameObject newPlant = Instantiate(nextPrefab, point.position, Quaternion.identity, point);
-    //                newPlant.name = nextPrefab.name + "_Instance";
-    //            }
-    //        }
-    //    }
-
-    //    Debug.Log("As plantas desse terreno avançaram para a próxima fase.");
-    //}
-
     public void GrowPlants()
     {
         for (int i = 0; i < plantPoints.Length; i++)
