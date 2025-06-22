@@ -248,6 +248,58 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portaDireita: {fileID: 1116401071}
   portaEsquerda: {fileID: 1116401071}
+--- !u!1 &63756536
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 63756538}
+  - component: {fileID: 63756537}
+  m_Layer: 0
+  m_Name: FasesUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &63756537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63756536}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c9f96433add2fa43aa0bbd3ad747e6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiIdle: {fileID: 1345946008}
+  uiPulverizar: {fileID: 1861644468}
+  uiArar: {fileID: 1050329930}
+  uiPlantar: {fileID: 1648977045}
+  uiRegar: {fileID: 1449681684}
+  uiOxigenio: {fileID: 615310617}
+  uiCama: {fileID: 453223838}
+  grabSystem: {fileID: 1243197306}
+--- !u!4 &63756538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63756536}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 580.59564, y: 20.105913, z: 432.32425}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &68820620
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -609,7 +661,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: b2d36bb9c62865d4e92b491ddee2843b, type: 3}
       propertyPath: m_TagString
-      value: Grababble
+      value: Arador
       objectReference: {fileID: 0}
     - target: {fileID: 2042023225869285003, guid: b2d36bb9c62865d4e92b491ddee2843b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1543,6 +1595,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 48f1fc9504d027a4ab0e8e69900a4ebf, type: 3}
       propertyPath: m_Name
       value: AlmofadaScript
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 48f1fc9504d027a4ab0e8e69900a4ebf, type: 3}
+      propertyPath: m_TagString
+      value: Bed
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3859,8 +3915,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63c60bb6ae497742a5e4858d97bd25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treatedSoil: 1
-  plowedSoil: 1
+  treatedSoil: 0
+  plowedSoil: 0
   plantedSoil: 0
   isWatered: 0
   plantedObject: {fileID: 253571144468383892, guid: dd7aea126442f474b84dd9e1665893bd, type: 3}
@@ -6610,7 +6666,7 @@ GameObject:
   m_Component:
   - component: {fileID: 615310618}
   m_Layer: 5
-  m_Name: faseDormir (1)
+  m_Name: faseOxigenio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8035,7 +8091,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Plantar
+  m_text: '  Plantar'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3b9bbd1a74cda0142a99dd861c5300cf, type: 2}
   m_sharedMaterial: {fileID: 2569287576977238770, guid: 3b9bbd1a74cda0142a99dd861c5300cf, type: 2}
@@ -8069,7 +8125,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 2
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -16981,6 +17037,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pCylinder109 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 4264649515532405239, guid: 2c53a6c0b9eda3e4dada8a5e800758bf, type: 3}
+      propertyPath: m_TagString
+      value: Oxygen
+      objectReference: {fileID: 0}
     - target: {fileID: 4366814112656807289, guid: 2c53a6c0b9eda3e4dada8a5e800758bf, type: 3}
       propertyPath: m_LocalScale.x
       value: 46.150276
@@ -17924,7 +17984,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f27135340be82a54284106d98f94bbc3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6a2674d4fa625e54fbbb94436844514d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -18407,6 +18467,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4887626325458624939, guid: 8f83770360f0cb04684c039411943975, type: 3}
   m_PrefabInstance: {fileID: 7973828674643786882}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1243197306 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1892591501500409092, guid: 8f83770360f0cb04684c039411943975, type: 3}
+  m_PrefabInstance: {fileID: 7973828674643786882}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243197289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1acd4de3fc68c64eb6be3b76f913ad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1245354174 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6748096556421337097, guid: e060b243e88bb8341b406dc165c8292d, type: 3}
@@ -19211,7 +19282,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f27135340be82a54284106d98f94bbc3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6a2674d4fa625e54fbbb94436844514d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21551,8 +21622,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63c60bb6ae497742a5e4858d97bd25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treatedSoil: 1
-  plowedSoil: 1
+  treatedSoil: 0
+  plowedSoil: 0
   plantedSoil: 0
   isWatered: 0
   plantedObject: {fileID: 253571144468383892, guid: dd7aea126442f474b84dd9e1665893bd, type: 3}
@@ -21819,7 +21890,7 @@ GameObject:
   - component: {fileID: 1538721738}
   m_Layer: 0
   m_Name: obj
-  m_TagString: Grababble
+  m_TagString: Pulverizador
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23516,7 +23587,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1861644469
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25056,7 +25127,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: db76e8475c33c494c9218fc4811fdcde, type: 3}
   m_Resource: {fileID: 8300000, guid: db76e8475c33c494c9218fc4811fdcde, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -26312,6 +26383,10 @@ PrefabInstance:
       propertyPath: playerAnimator
       value: 
       objectReference: {fileID: 1188020133}
+    - target: {fileID: 6111343816558472089, guid: 8f83770360f0cb04684c039411943975, type: 3}
+      propertyPath: playerActionUIManager
+      value: 
+      objectReference: {fileID: 63756537}
     - target: {fileID: 7463223559715632467, guid: 8f83770360f0cb04684c039411943975, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -26391,3 +26466,4 @@ SceneRoots:
   - {fileID: 2000566662}
   - {fileID: 1132878731}
   - {fileID: 2017334680}
+  - {fileID: 63756538}

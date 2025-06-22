@@ -14,6 +14,10 @@ TagManager:
   - Potato
   - Regador
   - PainelSolar
+  - Oxygen
+  - Bed
+  - Pulverizador
+  - Arador
   layers:
   - Default
   - TransparentFX

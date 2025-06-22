@@ -33,7 +33,9 @@ public class GrabSystem : MonoBehaviour
                 {
                     if (raycastHit.collider.CompareTag("Grababble") ||
                         raycastHit.collider.CompareTag("Potato") ||
-                        raycastHit.collider.CompareTag("Regador"))
+                        raycastHit.collider.CompareTag("Regador") ||
+                        raycastHit.collider.CompareTag("Pulverizador") ||
+                        raycastHit.collider.CompareTag("Arador"))
                     {
                         holdObject = raycastHit.collider.gameObject;
                         holdScript = holdObject.GetComponent<GrabbableObject>();
@@ -64,7 +66,7 @@ public class GrabSystem : MonoBehaviour
         }
 
         // Plantar a batata
-        if (Input.GetKeyDown(KeyCode.G) && holdObject != null && holdObject.CompareTag("Potato"))
+        if (Input.GetKeyDown(KeyCode.Mouse0) && holdObject != null && holdObject.CompareTag("Potato"))
         {
             Collider[] colliders = Physics.OverlapSphere(holdObject.transform.position, 0.5f);
 
@@ -122,5 +124,21 @@ public class GrabSystem : MonoBehaviour
     public bool IsHolding(GameObject obj)
     {
         return holdObject == obj;
+    }
+
+    public bool IsHoldingTag(string tag)
+    {
+        if (holdObject == null) return false;
+        return holdObject.CompareTag(tag);
+    }
+
+    public bool IsHoldingSomething()
+    {
+        return holdObject != null;
+    }
+
+    public GameObject GetHeldObject()
+    {
+        return holdObject;
     }
 }

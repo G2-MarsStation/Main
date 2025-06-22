@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
 
     public bool canMove = true;
 
+    public PlayerActionUIManager playerActionUIManager;
+
     // Privados 
 
     [SerializeField] private Transform groundCheck;
@@ -143,4 +145,29 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(groundCheck.position, groundCheckDistance);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Oxygen"))
+        {
+            playerActionUIManager.PlayerNearOxygen(true);
+        }
+        if (other.CompareTag("Bed"))
+        {
+            playerActionUIManager.PlayerNearBed(true);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Oxygen"))
+        {
+            playerActionUIManager.PlayerNearOxygen(false);
+        }
+        if (other.CompareTag("Bed"))
+        {
+            playerActionUIManager.PlayerNearBed(false);
+        }
+    }
+
 }
