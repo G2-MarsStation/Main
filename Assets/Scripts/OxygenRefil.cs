@@ -5,7 +5,7 @@ public class OxygenRefil : MonoBehaviour
 {
     public float refilRate = 5f;
     public PainelSolarManager painelSolarManager; // arraste no Inspector
-    private bool jaAtivouPainelTorto = false; // para ativar só uma vez
+    //private bool jaAtivouPainelTorto = false; // para ativar só uma vez
 
 
     private void OnTriggerStay(Collider other)

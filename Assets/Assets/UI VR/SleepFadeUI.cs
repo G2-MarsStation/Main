@@ -12,6 +12,9 @@ public class SleepFadeUI : MonoBehaviour
 
     private bool isFading = false;
 
+    // NOVO: flag para controlar se o fade pode ser executado
+    public bool podeFazerFade = true;
+
     void Start()
     {
         if (fadeImage != null)
@@ -29,8 +32,15 @@ public class SleepFadeUI : MonoBehaviour
 
     public void TriggerSleepUI()
     {
-        if (!isFading && fadeImage != null)
+        // ALTERADO: só começa o fade se estiver permitido (podeFazerFade)
+        if (!isFading && fadeImage != null && podeFazerFade)
+        {
             StartCoroutine(FadeRoutine());
+        }
+        else if (!podeFazerFade)
+        {
+            Debug.Log("Fade bloqueado: não é hora de dormir.");
+        }
     }
 
     private IEnumerator FadeRoutine()

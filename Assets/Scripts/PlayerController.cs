@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour
     public Scrollbar ScrollHealthBar;
     public bool isDead = false;
 
+    public Animator playerAnimator; // animator
+
+    public bool canMove = true;
+
     // Privados 
 
     [SerializeField] private Transform groundCheck;
@@ -31,6 +35,7 @@ public class PlayerController : MonoBehaviour
     private float rotationX = 0f;
     private Vector3 moveDirection;
     private bool isGrounded;
+
 
     void Start()
     {
@@ -46,6 +51,16 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+
+        if (!canMove)
+        {
+            // Se não pode se mover, zera a velocidade vertical para não acumular gravidade enquanto parado
+            yVelocity = 0;
+
+            return; // sai do Update para não processar o movimento
+        } 
+
+
         if (transform.position.y <= -5)
         {
             SceneManager.LoadScene("DeathScene");
@@ -102,7 +117,12 @@ public class PlayerController : MonoBehaviour
             vertical = 0;
         }
 
-        
+        if (playerAnimator != null)
+        {
+            float movementSpeed = new Vector3(moveDirection.x, 0, moveDirection.z).magnitude;
+            playerAnimator.SetFloat("Speed", movementSpeed); // <<< Correto: controla animação de andar
+        }
+
 
         if (currentHealth <= 0)
         {
