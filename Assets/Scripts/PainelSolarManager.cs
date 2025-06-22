@@ -40,4 +40,9 @@ public class PainelSolarManager : MonoBehaviour
             }
         }
     }
+
+    public bool TodosPaineisConsertados()
+    {
+        return consertados >= paineisSolares.Length;
+    }
 }

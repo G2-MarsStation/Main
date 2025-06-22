@@ -4,7 +4,10 @@ public class SolarPanelFix : MonoBehaviour
 {
     public bool ativado = false;
     private Quaternion rotacaoCorreta;
-    public PainelSolarManager painelSolarManager; // referência para o manager
+    public PainelSolarManager painelSolarManager;
+
+    public Transform player; 
+    public float distanciaPermitida = 2.5f; 
 
     void Start()
     {
@@ -13,17 +16,25 @@ public class SolarPanelFix : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (ativado)
-        {
-            transform.rotation = rotacaoCorreta;
-            ativado = false;
-            Debug.Log($"{gameObject.name} consertado!");
+        float distancia = Vector3.Distance(transform.position, player.position);
 
-            // Avisar o manager que esse painel foi consertado
-            if (painelSolarManager != null)
+        if (distancia <= distanciaPermitida)
+        {
+            if (ativado)
             {
-                painelSolarManager.PainelConsertado();
+                transform.rotation = rotacaoCorreta;
+                ativado = false;
+                Debug.Log($"{gameObject.name} consertado!");
+
+                if (painelSolarManager != null)
+                {
+                    painelSolarManager.PainelConsertado();
+                }
             }
+        }
+        else
+        {
+            Debug.Log("Chegue mais perto para consertar o painel!");
         }
     }
 
