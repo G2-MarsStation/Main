@@ -486,6 +486,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1125363407185259611, guid: 00749b08cbed25843a68ebe5772041b4, type: 3}
+      propertyPath: m_text
+      value: "Parab\xE9ns, Comandante. \nVoc\xEA completou a miss\xE3o com sucesso.
+        \nAs amostras confirmam: a vida vegetal pode florescer em Marte. Esta \xE9
+        uma vit\xF3ria para a ci\xEAncia, para o planeta... e para o Brasil.  Seu
+        nome agora faz parte da hist\xF3ria. A miss\xE3o foi conclu\xEDda com excel\xEAncia.
+        Encerrando sistema."
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125363407185259611, guid: 00749b08cbed25843a68ebe5772041b4, type: 3}
+      propertyPath: m_margin.w
+      value: -254.16286
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125363407185259611, guid: 00749b08cbed25843a68ebe5772041b4, type: 3}
+      propertyPath: m_margin.x
+      value: -761.4765
+      objectReference: {fileID: 0}
+    - target: {fileID: 1125363407185259611, guid: 00749b08cbed25843a68ebe5772041b4, type: 3}
+      propertyPath: m_margin.z
+      value: -211.25348
+      objectReference: {fileID: 0}
     - target: {fileID: 1258302445704015062, guid: 00749b08cbed25843a68ebe5772041b4, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.8525
@@ -501,6 +521,22 @@ PrefabInstance:
     - target: {fileID: 1669375417097257654, guid: 00749b08cbed25843a68ebe5772041b4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: VoltarMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913255527280046906, guid: 00749b08cbed25843a68ebe5772041b4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.58124894
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913255527280046906, guid: 00749b08cbed25843a68ebe5772041b4, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6033364
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913255527280046906, guid: 00749b08cbed25843a68ebe5772041b4, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.58124894
+      objectReference: {fileID: 0}
+    - target: {fileID: 1913255527280046906, guid: 00749b08cbed25843a68ebe5772041b4, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 161
       objectReference: {fileID: 0}
     - target: {fileID: 2630597414945057734, guid: 00749b08cbed25843a68ebe5772041b4, type: 3}
       propertyPath: m_Name
