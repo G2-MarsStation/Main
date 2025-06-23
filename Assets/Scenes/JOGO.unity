@@ -420,7 +420,9 @@ MonoBehaviour:
   uiRegar: {fileID: 1449681684}
   uiOxigenio: {fileID: 615310617}
   uiCama: {fileID: 453223838}
+  uiConsertarPainel: {fileID: 736513854}
   grabSystem: {fileID: 1243197306}
+  pertoDoPainel: 0
 --- !u!4 &63756538
 Transform:
   m_ObjectHideFlags: 0
@@ -4958,9 +4960,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63c60bb6ae497742a5e4858d97bd25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treatedSoil: 0
-  plowedSoil: 0
-  plantedSoil: 0
+  treatedSoil: 1
+  plowedSoil: 1
+  plantedSoil: 1
   isWatered: 0
   plantedObject: {fileID: 253571144468383892, guid: dd7aea126442f474b84dd9e1665893bd, type: 3}
   prefabPhase2: {fileID: 8906747070917393036, guid: b13852cf5eb16d049b26c0097cb98d01, type: 3}
@@ -17183,6 +17185,46 @@ MonoBehaviour:
   moveSpeed: 10
   snapSpeed: 5
   isHarvestItem: 0
+--- !u!1 &573312661 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5700246479507635628, guid: 3ddccf0af3a8260468fa9bf96900e21a, type: 3}
+  m_PrefabInstance: {fileID: 999536700}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &573312665
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573312661}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.21578772, y: 0.39478412, z: 0.010000001}
+  m_Center: {x: 0.0147166075, y: 0.02867051, z: -3.4177905e-10}
+--- !u!114 &573312666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573312661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19ffb9a694ac8a94683db908fce523ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uiManager: {fileID: 63756537}
+  painelFix: {fileID: 1631072916}
 --- !u!114 &580212679 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6111343816558472089, guid: 8f83770360f0cb04684c039411943975, type: 3}
@@ -19354,7 +19396,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &736513855
 RectTransform:
   m_ObjectHideFlags: 0
@@ -27746,6 +27788,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: PainelSolar
       objectReference: {fileID: 0}
+    - target: {fileID: 5700246479507635628, guid: 3ddccf0af3a8260468fa9bf96900e21a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6916172178010486448, guid: 3ddccf0af3a8260468fa9bf96900e21a, type: 3}
       propertyPath: m_TagString
       value: PainelSolar
@@ -27782,6 +27828,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6916172178010486448, guid: 3ddccf0af3a8260468fa9bf96900e21a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 692641782}
+    - targetCorrespondingSourceObject: {fileID: 5700246479507635628, guid: 3ddccf0af3a8260468fa9bf96900e21a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 573312665}
+    - targetCorrespondingSourceObject: {fileID: 5700246479507635628, guid: 3ddccf0af3a8260468fa9bf96900e21a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 573312666}
     - targetCorrespondingSourceObject: {fileID: 3411186996818375190, guid: 3ddccf0af3a8260468fa9bf96900e21a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 867424733}
@@ -39427,9 +39479,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63c60bb6ae497742a5e4858d97bd25c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  treatedSoil: 0
-  plowedSoil: 0
-  plantedSoil: 0
+  treatedSoil: 1
+  plowedSoil: 1
+  plantedSoil: 1
   isWatered: 0
   plantedObject: {fileID: 253571144468383892, guid: dd7aea126442f474b84dd9e1665893bd, type: 3}
   prefabPhase2: {fileID: 8906747070917393036, guid: b13852cf5eb16d049b26c0097cb98d01, type: 3}

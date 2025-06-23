@@ -9,11 +9,14 @@ public class PlayerActionUIManager : MonoBehaviour
     public GameObject uiRegar;
     public GameObject uiOxigenio;
     public GameObject uiCama;
+    public GameObject uiConsertarPainel;
 
     public GrabSystem grabSystem; // arrasta seu GrabSystem aqui
 
     private bool isNearOxygen = false;
     private bool isNearBed = false;
+    public bool pertoDoPainel = false;
+
 
     void Start()
     {
@@ -33,6 +36,11 @@ public class PlayerActionUIManager : MonoBehaviour
         if (isNearBed)
         {
             ShowBedUI();
+            return;
+        }
+        if (pertoDoPainel)
+        {
+            ShowConsertarPainelUI();
             return;
         }
 
@@ -127,5 +135,15 @@ public class PlayerActionUIManager : MonoBehaviour
         uiRegar.SetActive(activeUI == uiRegar);
         uiOxigenio.SetActive(activeUI == uiOxigenio);
         uiCama.SetActive(activeUI == uiCama);
+        uiConsertarPainel.SetActive(activeUI == uiConsertarPainel);
+    }
+    private void ShowConsertarPainelUI()
+    {
+        EnableOnlyThis(uiConsertarPainel);
+    }
+
+    public void SetPertoDoPainel(bool estado)
+    {
+        pertoDoPainel = estado;
     }
 }
