@@ -48,5 +48,11 @@ public class BaseZoneTrigger : MonoBehaviour
     {
         Debug.Log("Carregando cena final...");
         SceneManager.LoadScene(cenaFinal);
+        EncerrarJogo();
+    }
+
+    public void EncerrarJogo()
+    {
+        Cursor.lockState = CursorLockMode.None;
     }
 }
