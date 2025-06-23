@@ -2,31 +2,22 @@ using UnityEngine;
 
 public class DirtApplication : MonoBehaviour
 {
-    float finalTimer = 5f;
-    float currentTime = 0f;
+    public float finalTimer = 5f;
+    private float currentTime = 0f;
 
     public KeyCode applyKey = KeyCode.Mouse0;
+
     private bool nearSoil = false;
     private GameObject targetSoil;
+    private bool isDoingAction = false;
 
-    //public GameObject fasePulverizar;
-
-
-    void Start()
-    {
-
-        //fasePulverizar.SetActive(false);
-
-    }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Dirt"))
         {
             nearSoil = true;
             targetSoil = other.gameObject;
-            //fasePulverizar.SetActive(true);
         }
-        ;
     }
 
     private void OnTriggerExit(Collider other)
@@ -34,46 +25,78 @@ public class DirtApplication : MonoBehaviour
         if (other.CompareTag("Dirt"))
         {
             nearSoil = false;
-            targetSoil = other.gameObject;
+            targetSoil = null;
             currentTime = 0f;
+            isDoingAction = false;
+            ActionSliderUI.instance.HideSlider();
         }
     }
 
-    void Update()
+    private void Update()
     {
-        // Faz voltar se não estiver nessa fase
+        // Só executa se estiver na fase de pulverizar
         if (SoilManager.instance.currentPhase != SoilPhase.ApplyProduct) return;
+        if (!nearSoil || targetSoil == null) return;
 
-        if (nearSoil && Input.GetKey(applyKey))
-        {
-            Debug.Log("Aplicando o produto");
-            currentTime += Time.deltaTime;
-
-            if (currentTime >= finalTimer)
-            {
-                ApplyProduct();
-                currentTime = 0f;
-            }
-        }   
-    }
-
-    void ApplyProduct()
-    {
         if (targetSoil.TryGetComponent(out SoilState soilState))
         {
-
-            // Se a terra ainda nao foi tratada...
-            if (!soilState.treatedSoil)
+            // Verifica se já está tratado
+            if (soilState.treatedSoil)
             {
-                soilState.CheckSoilTreated();
-                Debug.Log("Produto aplicado");
+                if (isDoingAction)
+                {
+                    isDoingAction = false;
+                    currentTime = 0f;
+                    ActionSliderUI.instance.HideSlider();
+                }
+                return;
+            }
+
+            //  Caso NÃO esteja tratado
+            if (Input.GetKey(applyKey))
+            {
+                if (!isDoingAction)
+                {
+                    isDoingAction = true;
+                    currentTime = 0f;
+                    ActionSliderUI.instance.ShowSlider();
+                }
+
+                currentTime += Time.deltaTime;
+                float progress = currentTime / finalTimer;
+                ActionSliderUI.instance.UpdateSlider(progress);
+
+                if (progress >= 1f)
+                {
+                    ApplyProduct(soilState);
+                    currentTime = 0f;
+                    isDoingAction = false;
+                    ActionSliderUI.instance.HideSlider();
+                }
             }
             else
             {
-                Debug.Log("Terra já tratada");
+                // Soltou o botão antes de concluir
+                if (isDoingAction)
+                {
+                    isDoingAction = false;
+                    currentTime = 0f;
+                    ActionSliderUI.instance.HideSlider();
+                }
             }
         }
+    }
 
-        //Destroy(gameObject);
+    void ApplyProduct(SoilState soilState)
+    {
+        if (!soilState.treatedSoil)
+        {
+            soilState.CheckSoilTreated();
+            Debug.Log("Produto aplicado com sucesso.");
+        }
+        else
+        {
+            Debug.Log("Este solo já está tratado.");
+        }
     }
 }
