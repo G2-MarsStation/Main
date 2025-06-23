@@ -10,6 +10,9 @@ public class Watering : MonoBehaviour
     private GameObject targetSoil;
     private bool isDoingAction = false;
 
+    public ParticleSystem wateringParticles; // Partículas de rega
+    public AudioSource AudioWater;           // Som de rega
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Dirt"))
@@ -28,12 +31,17 @@ public class Watering : MonoBehaviour
             currentTime = 0f;
             isDoingAction = false;
             ActionSliderUI.instance.HideSlider();
+
+            if (wateringParticles != null && wateringParticles.isPlaying)
+                wateringParticles.Stop();
+
+            if (AudioWater != null && AudioWater.isPlaying)
+                AudioWater.Stop();
         }
     }
 
     public void Update()
     {
-        // Funciona nas fases de Water e Water2
         if (SoilManager.instance.currentPhase != SoilPhase.Water &&
             SoilManager.instance.currentPhase != SoilPhase.Water2) return;
 
@@ -41,7 +49,6 @@ public class Watering : MonoBehaviour
 
         if (targetSoil.TryGetComponent(out SoilState soilState))
         {
-            // Verifica se já está regado
             if (soilState.isWatered)
             {
                 if (isDoingAction)
@@ -49,11 +56,16 @@ public class Watering : MonoBehaviour
                     isDoingAction = false;
                     currentTime = 0f;
                     ActionSliderUI.instance.HideSlider();
+
+                    if (wateringParticles != null && wateringParticles.isPlaying)
+                        wateringParticles.Stop();
+
+                    if (AudioWater != null && AudioWater.isPlaying)
+                        AudioWater.Stop();
                 }
                 return;
             }
 
-            // Se NÃO está regado
             if (Input.GetKey(waterKey))
             {
                 if (!isDoingAction)
@@ -61,6 +73,12 @@ public class Watering : MonoBehaviour
                     isDoingAction = true;
                     currentTime = 0f;
                     ActionSliderUI.instance.ShowSlider();
+
+                    if (wateringParticles != null && !wateringParticles.isPlaying)
+                        wateringParticles.Play();
+
+                    if (AudioWater != null && !AudioWater.isPlaying)
+                        AudioWater.Play();
                 }
 
                 currentTime += Time.deltaTime;
@@ -73,16 +91,27 @@ public class Watering : MonoBehaviour
                     currentTime = 0f;
                     isDoingAction = false;
                     ActionSliderUI.instance.HideSlider();
+
+                    if (wateringParticles != null && wateringParticles.isPlaying)
+                        wateringParticles.Stop();
+
+                    if (AudioWater != null && AudioWater.isPlaying)
+                        AudioWater.Stop();
                 }
             }
             else
             {
-                // Soltou o botão antes de concluir
                 if (isDoingAction)
                 {
                     isDoingAction = false;
                     currentTime = 0f;
                     ActionSliderUI.instance.HideSlider();
+
+                    if (wateringParticles != null && wateringParticles.isPlaying)
+                        wateringParticles.Stop();
+
+                    if (AudioWater != null && AudioWater.isPlaying)
+                        AudioWater.Stop();
                 }
             }
         }

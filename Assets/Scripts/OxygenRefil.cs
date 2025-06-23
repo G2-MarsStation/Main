@@ -37,14 +37,14 @@ public class OxygenRefil : MonoBehaviour
                     {
                         playerOxygen.currentOxygen += refilRate;
                         playerOxygen.currentOxygen = Mathf.Min(playerOxygen.currentOxygen, playerOxygen.maxOxygen);
-                    }
-                // Toca o áudio final
                 if (audioFinal != null)
                 {
                     audioFinal.Play();
                     Debug.Log("Áudio final iniciado.");
                     
                 }
+                    }
+                // Toca o áudio final
                 else
                 {
                     Debug.LogWarning("Áudio final não está atribuído.");

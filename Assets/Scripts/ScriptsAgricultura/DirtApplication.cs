@@ -11,6 +11,9 @@ public class DirtApplication : MonoBehaviour
     private GameObject targetSoil;
     private bool isDoingAction = false;
 
+    public ParticleSystem Aplication;   // Partículas da aplicação
+    public AudioSource spraySound;      // Som do pulverizador
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Dirt"))
@@ -29,18 +32,22 @@ public class DirtApplication : MonoBehaviour
             currentTime = 0f;
             isDoingAction = false;
             ActionSliderUI.instance.HideSlider();
+
+            if (Aplication != null && Aplication.isPlaying)
+                Aplication.Stop();
+
+            if (spraySound != null && spraySound.isPlaying)
+                spraySound.Stop();
         }
     }
 
     private void Update()
     {
-        // Só executa se estiver na fase de pulverizar
         if (SoilManager.instance.currentPhase != SoilPhase.ApplyProduct) return;
         if (!nearSoil || targetSoil == null) return;
 
         if (targetSoil.TryGetComponent(out SoilState soilState))
         {
-            // Verifica se já está tratado
             if (soilState.treatedSoil)
             {
                 if (isDoingAction)
@@ -48,11 +55,16 @@ public class DirtApplication : MonoBehaviour
                     isDoingAction = false;
                     currentTime = 0f;
                     ActionSliderUI.instance.HideSlider();
+
+                    if (Aplication != null && Aplication.isPlaying)
+                        Aplication.Stop();
+
+                    if (spraySound != null && spraySound.isPlaying)
+                        spraySound.Stop();
                 }
                 return;
             }
 
-            //  Caso NÃO esteja tratado
             if (Input.GetKey(applyKey))
             {
                 if (!isDoingAction)
@@ -60,6 +72,12 @@ public class DirtApplication : MonoBehaviour
                     isDoingAction = true;
                     currentTime = 0f;
                     ActionSliderUI.instance.ShowSlider();
+
+                    if (Aplication != null && !Aplication.isPlaying)
+                        Aplication.Play();
+
+                    if (spraySound != null && !spraySound.isPlaying)
+                        spraySound.Play();
                 }
 
                 currentTime += Time.deltaTime;
@@ -72,16 +90,27 @@ public class DirtApplication : MonoBehaviour
                     currentTime = 0f;
                     isDoingAction = false;
                     ActionSliderUI.instance.HideSlider();
+
+                    if (Aplication != null && Aplication.isPlaying)
+                        Aplication.Stop();
+
+                    if (spraySound != null && spraySound.isPlaying)
+                        spraySound.Stop();
                 }
             }
             else
             {
-                // Soltou o botão antes de concluir
                 if (isDoingAction)
                 {
                     isDoingAction = false;
                     currentTime = 0f;
                     ActionSliderUI.instance.HideSlider();
+
+                    if (Aplication != null && Aplication.isPlaying)
+                        Aplication.Stop();
+
+                    if (spraySound != null && spraySound.isPlaying)
+                        spraySound.Stop();
                 }
             }
         }

@@ -10,6 +10,8 @@ public class SoilPlow : MonoBehaviour
     private GameObject targetSoil;
     private bool isDoingAction = false;
 
+    public AudioSource plowSound;  // Som de arar a terra
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Dirt"))
@@ -28,18 +30,19 @@ public class SoilPlow : MonoBehaviour
             currentTime = 0f;
             isDoingAction = false;
             ActionSliderUI.instance.HideSlider();
+
+            if (plowSound != null && plowSound.isPlaying)
+                plowSound.Stop();
         }
     }
 
     private void Update()
     {
-        // Garante que só funciona na fase de arar
         if (SoilManager.instance.currentPhase != SoilPhase.Plow) return;
         if (!nearSoil || targetSoil == null) return;
 
         if (targetSoil.TryGetComponent(out SoilState soilState))
         {
-            // Verifica se já está arado
             if (soilState.plowedSoil)
             {
                 if (isDoingAction)
@@ -47,11 +50,13 @@ public class SoilPlow : MonoBehaviour
                     isDoingAction = false;
                     currentTime = 0f;
                     ActionSliderUI.instance.HideSlider();
+
+                    if (plowSound != null && plowSound.isPlaying)
+                        plowSound.Stop();
                 }
                 return;
             }
 
-            // Se NÃO está arado
             if (Input.GetKey(plowKey))
             {
                 if (!isDoingAction)
@@ -59,6 +64,9 @@ public class SoilPlow : MonoBehaviour
                     isDoingAction = true;
                     currentTime = 0f;
                     ActionSliderUI.instance.ShowSlider();
+
+                    if (plowSound != null && !plowSound.isPlaying)
+                        plowSound.Play();
                 }
 
                 currentTime += Time.deltaTime;
@@ -71,16 +79,21 @@ public class SoilPlow : MonoBehaviour
                     currentTime = 0f;
                     isDoingAction = false;
                     ActionSliderUI.instance.HideSlider();
+
+                    if (plowSound != null && plowSound.isPlaying)
+                        plowSound.Stop();
                 }
             }
             else
             {
-                // Soltou o botão antes de concluir
                 if (isDoingAction)
                 {
                     isDoingAction = false;
                     currentTime = 0f;
                     ActionSliderUI.instance.HideSlider();
+
+                    if (plowSound != null && plowSound.isPlaying)
+                        plowSound.Stop();
                 }
             }
         }

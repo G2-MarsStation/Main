@@ -61,5 +61,11 @@ public class Storm : MonoBehaviour
 
             Debug.Log("Tempestade terminou");
         }
+
+
+    }
+    public bool IsStormActive()
+    {
+        return stormActive;
     }
 }
